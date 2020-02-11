@@ -154,8 +154,8 @@ var setup = function() {
 
   //dat.GUI.toggleHide();
   //createCanvas(windowWidth, windowHeight);
-  var cnv = createCanvas(539, 696, SVG);
-  //var cnv = createCanvas(200, 300, SVG);
+  //var cnv = createCanvas(539, 696, SVG);
+  var cnv = createCanvas(200, 300);
   cnv.position(100,150);
 
   colorMode(HSB, 360, 100, 100, 100);
