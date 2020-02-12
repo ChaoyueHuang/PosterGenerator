@@ -155,7 +155,7 @@ var setup = function() {
   //dat.GUI.toggleHide();
   //createCanvas(windowWidth, windowHeight);
   var cnv = createCanvas(539, 696, SVG);
-  //var cnv = createCanvas(200, 300);
+  //var cnv = createCanvas(200, 300, SVG);
   cnv.position(100,150);
 
   colorMode(HSB, 360, 100, 100, 100);
@@ -203,9 +203,9 @@ var setup = function() {
   //Save GUI
   // saveCanvasButton = createButton('Save Image');
   // saveCanvasButton.mousePressed(saveCanvas);
-  // saveCanvasButton.position(800,800);
+  // saveCanvasButton.position(800,900);
 
-  saveImageText = createElement('h3','Press any key to Save the design.');
+  saveImageText = createElement('h3',"Press 'a' to Save the design.");
   saveImageText.position(750,700);
   saveImageText.addClass('Alert');
 
@@ -311,13 +311,10 @@ var setup = function() {
 
 var draw = function() {
 
-
     background(bgColor);
     //background(slider.value());
     noFill();
     stroke(255,65);
-
-
 
     //Mian graphic part
     var fillMode = shape001_radio_fillMode.value();
@@ -372,9 +369,9 @@ var draw = function() {
     //diaplay the logo
     image(logo, 290, 640, 205, 32);
 
-    if (keyIsPressed === true) {
-    save("myPoster.svg");
-  }
+    // if (keyIsPressed === true) {
+    // save("myPoster.svg");
+  //}
 
 };
 
@@ -437,13 +434,18 @@ function shape001_random(){
 
 function saveCanvas() {
   //save(cnv, "myPoster.svg");
-  //save(cnv, "myPoster.png");
+  //save("myPoster.png");
+  //save("myPoster.svg");
 }
 
-// function keyisPressed() {
-//   //if (keyCode === 0){
-//   save("myPoster.svg");
-// //}
+function keyPressed() {
+  if (key == 'a'){
+  save("myPoster.svg");
+}
+}
+
+// function mousePressed() {
+//   save("myPoster.png");
 // }
 
 
