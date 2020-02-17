@@ -206,7 +206,7 @@ var setup = function() {
   // saveCanvasButton.mousePressed(saveCanvas);
   // saveCanvasButton.position(800,900);
 
-  saveImageText = createElement('h3',"Press 'a' to Save the design.");
+  saveImageText = createElement('h3',"Press 's' to Save the design.");
   saveImageText.position(750,700);
   saveImageText.addClass('Alert');
 
