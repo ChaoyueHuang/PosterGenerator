@@ -154,8 +154,9 @@ var setup = function() {
 
   //dat.GUI.toggleHide();
   //createCanvas(windowWidth, windowHeight);
-  var cnv = createCanvas(539, 696, SVG);
-  //var cnv = createCanvas(200, 300, SVG);
+  var cnv = createCanvas(539, 696);
+  //var cnv = createCanvas(539, 696, SVG);
+
   cnv.position(100,150);
 
   colorMode(HSB, 360, 100, 100, 100);
@@ -439,8 +440,9 @@ function saveCanvas() {
 }
 
 function keyPressed() {
-  if (key == 'a'){
-  save("myPoster.svg");
+  if (key == 's'){
+  // save("myPoster.svg");
+  save("myPoster.png");
 }
 }
 
