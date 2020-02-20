@@ -18,79 +18,6 @@ MaxAmplitudeControl,
 MinAmplitudeControl,
 RandomControl, gui2;
 
-// window.onload = function() {
-//   gui = new dat.GUI();
-//
-//   var f1 = gui.addFolder('Control');
-//   var f2 = gui.addFolder('Color');
-//   var f3 = gui.addFolder('Motion');
-//
-//   f1.open();
-//   f2.open();
-//   f3.open();
-//
-//   NumberControl = f1.add(params, 'Number', 1, 60);
-//   NumberControl.onChange(draw);
-//
-//   VertexControl = f1.add(params, 'Vertex', 1, 100);
-//   VertexControl.onChange(draw);
-//
-//   RadiusControl = f1.add(params, 'Radius', -500, 500);
-//   RadiusControl.onChange(draw);
-//
-//   StepControl = f1.add(params, 'Step', 1, 10);
-//   StepControl.onChange(draw);
-//
-//   MaxStrokeWeightControl = f1.add(params, 'MaxStrokeWeight', 0, 20);
-//   MaxStrokeWeightControl.onChange(draw);
-//
-//   MinStrokeWeightControl = f1.add(params, 'MinStrokeWeight', 0, 20);
-//   MinStrokeWeightControl.onChange(draw);
-//
-//   ScaleControl = f1.add(params, 'Scale', 0, 100);
-//   ScaleControl.onChange(draw);
-//
-//   FillModeControl = f2.add(params, 'FillMode', (['Gradient','SolidColor']));
-//   FillModeControl.onChange(function() {
-//     if (params.FillMode == 'SolidColor') {
-//       type = 'SolidColor';
-//       draw();
-//     }
-//     else if (params.FillMode == 'Gradient') {
-//       type = 'Gradient';
-//       draw();
-//     }
-//   })
-//
-//   ColorControl = f2.addColor(params, 'Color');
-//   ColorControl.onChange(draw);
-//
-//   StartColorControl = f2.add(params, 'StartColor', -360, 0);
-//   StartColorControl.onChange(draw);
-//
-//   EndColorControl = f2.add(params, 'EndColor', 0, 360);
-//   EndColorControl.onChange(draw);
-//
-//   OffsetControl = f2.add(params, 'Offset', 0, 10);
-//   OffsetControl.onChange(draw);
-//
-//   FlashControl = f3.add(params, 'Flash', 0.1, 10.0);
-//   FlashControl.onChange(draw);
-//
-//   SpeedControl = f3.add(params, 'Speed', 3.0, 10.0);
-//   SpeedControl.onChange(draw);
-//
-//   MaxAmplitudeControl = f3.add(params, 'MaxAmplitude', 0, 250);
-//   MaxAmplitudeControl.onChange(draw);
-//
-//   MinAmplitudeControl = f3.add(params, 'MinAmplitude', -250, 0);
-//   MinAmplitudeControl.onChange(draw);
-//
-//   RandomControl = gui.add(params, 'Random');
-//   //RandomControl.onChange(draw);
-//
-// };
-
 var logo;
 var bgColor;
 var saveCanvasButton;
@@ -109,6 +36,11 @@ var textarea;
 var textarea_text;
 var textControlxOffset;
 var textControlyOffset;
+
+//Image input Variables
+var input_image;
+var input_image_text;
+var img;
 
 //Save Variables
 var saveImageText;
@@ -200,6 +132,12 @@ var setup = function() {
   textarea.addClass('textArea');
   textarea_text = createElement('h2','Time&Location');
   textarea_text.position(650+textControlxOffset,380);
+
+  //Image Input GUI
+  input_image = createFileInput(handleFile);
+  input_image.position(800+textControlxOffset, 600);
+  input_image_text = createElement('h2','Upload image');
+  input_image_text .position(650+textControlxOffset,580);
 
   //Save GUI
   // saveCanvasButton = createButton('Save Image');
@@ -374,7 +312,21 @@ var draw = function() {
     // save("myPoster.svg");
   //}
 
+    //Image part
+    if (img) {
+      image(img, 200, 640);
+    }
+
 };
+
+function handleFile(file) {
+  if (file.type === 'image') {
+    img = createImg(file.data);
+    img.hide();
+  } else {
+    img = null;
+  }
+}
 
 function shape001_random(){
 
