@@ -1,5 +1,5 @@
 html, body {
-  background-color: #000000;
+  background-color: #212121;
   /* background-color: #8F8F8F; */
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ h1 {
   color: #fff;
   /* color: #0E0E0E; */
   font-family: "Roboto", sans-serif;
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 600;
   margin-bottom: 0;
 }
@@ -50,17 +50,38 @@ h4 {
 }
 
 .project-title {
-  margin-left: 100px;
+  /* margin-left: 100px; */
+  text-align: left;
+
 }
 
 .square {
+
   height: 700px;
   width: 543px;
-  /* top: 150px;
-  left: 100px; */
-  margin-left: 98px;
-  margin-top: 37px;
-  background-color: #fff;
+  box-sizing: border-box;
+  /* position: fixed;
+  left: 50%;
+  margin-left: -271.5px; /* 为自身宽度的负一半 */
+  top: 450px;
+  transform: translateY(-50%);
+  background: #ffffff;
+  z-index: -2;
+
+}
+
+.canvas {
+  /* box-sizing: border-box; */
+  /* position: fixed;
+  left: 50%;
+  margin-left: -269.5px; /* 为自身宽度的负一半 */
+  /* top: 450px; */
+  margin-top: 4%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  /* transform: translateY(-50%); */
+  background: #ffffff;
+  z-index: 0;
 }
 
 .textInput {
@@ -70,7 +91,7 @@ h4 {
   box-sizing: border-box;
   border: none;
   border-bottom: 2px solid #808080;
-  background-color: black;
+  background-color: #212121;
   color: white;
 }
 
@@ -91,7 +112,7 @@ h4 {
   box-sizing: border-box;
   border: 2px solid #808080;
   border-radius: 4px;
-  background-color: black;
+  background-color: #212121;
   color: white;
   resize: none;
 }
@@ -164,4 +185,51 @@ textarea:hover {
 
 .colorPicker {
 
+}
+
+.row {
+  /* margin-top: 12rem; */
+  text-align: center;
+  /* padding: 0 10% 0 10%; */
+}
+
+.column-1{
+  margin: 8pt;
+}
+
+.text-panel {
+  padding-left: 10%;
+  text-align: left;
+  padding-top: 5%;
+}
+
+.imageArea {
+  margin-left: 70%;
+  text-align: left;
+}
+
+.gifArea {
+  margin-right: 60%;
+  text-align: right;
+  /* display: inline-block; */
+}
+
+.column-3 {
+  float: left;
+  text-align: left;
+  padding-left: 20%;
+  padding-top: 10%;
+}
+
+.shape001, .shape002 {
+  color: white;
+  margin: 8pt;
+}
+
+.c3-body {
+  margin-top: 20px;
+}
+
+.option {
+  color: white;
 }
