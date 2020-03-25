@@ -1,5 +1,4 @@
 
-
 var s1, gui;
 
 
@@ -57,10 +56,12 @@ var endFrame;
 //Shape Options
 var shape001_button;
 var shape002_button;
+var shape003_button;
 
 //basic and advanced Options
 var shape001_option;
-var shape001_option_control;
+var shape001_option_advanced;
+var shape001_option_basic;
 var shape002_option;
 var shape002_option_control;
 
@@ -109,6 +110,13 @@ var shape002_slider_lineWeight;
 var shape002_slider_lineWeight_text;
 var shape002_control;
 
+//shape003 Variables
+var shape003_particles_a = [];
+var shape003_particles_b = [];
+var shape003_particles_c = [];
+var shape003_nums =200;
+var shape003_noiseScale = 800;
+
 
 function preload() {
   logo = loadImage('data/tandon_logo_white.png');
@@ -124,6 +132,8 @@ var setup = function() {
   cnv.style('z-index','1');
   canvas = cnv.canvas;
 
+  bgColor = color(0);
+  background(bgColor);
   //smooth();
   //var cnv = createCanvas(539, 696, SVG);
 
@@ -146,9 +156,15 @@ var setup = function() {
   shape002_lineWeight = 10;
   shape002_flag = false;
 
+  //initialize shape003
+  for(var i = 0; i < shape003_nums; i++){
+		shape003_particles_a[i] = new shape003_Particle(random(0, width),random(0,height));
+		shape003_particles_b[i] = new shape003_Particle(random(0, width),random(0,height));
+		shape003_particles_c[i] = new shape003_Particle(random(0, width),random(0,height));
+	}
+
   //Text Input GUI
   textControlxOffset = -500;
-  bgColor = color(0);
 
   input_title_text = createElement('h2','Title');
   //input_title_text.position(740+textControlxOffset,140);
@@ -296,13 +312,19 @@ var setup = function() {
   //shape001_button.position(50,100);
   shape001_button.mousePressed(shape001display);
   shape001_button.parent('c3-line1');
-  shape001_button.attribute('title','This algorithm generates vertex based shape.')
+  shape001_button.attribute('title','This algorithm generates vertex based shape.');
 
   shape002_button = createButton("Maze");
   //shape002_button.position(150,100);
   shape002_button.mousePressed(shape002display);
   shape002_button.parent('c3-line1');
-  shape002_button.attribute('title','This algorithm generates maze-like pattern.')
+  shape002_button.attribute('title','This algorithm generates maze-like pattern.');
+
+  shape003_button = createButton("Noise");
+  //shape002_button.position(150,100);
+  shape003_button.mousePressed(shape003display);
+  shape003_button.parent('c3-line1');
+  shape003_button.attribute('title','This algorithm generates maze-like pattern.');
 
   //basic and advanced panel GUI
   shape001_option = createRadio();
@@ -311,13 +333,14 @@ var setup = function() {
   shape001_option.option('basic');
   shape001_option.option('advanced');
   shape001_option.value('basic');
+  shape001_option.changed(shape001Option);
 
-  shape002_option = createRadio();
-  shape002_option.addClass('option, shape002');
-  shape002_option.parent('c3-line2');
-  shape002_option.option('basic');
-  shape002_option.option('advanced');
-  shape002_option.value('basic');
+  // shape002_option = createRadio();
+  // shape002_option.addClass('option, shape002');
+  // shape002_option.parent('c3-line2');
+  // shape002_option.option('basic');
+  // shape002_option.option('advanced');
+  // shape002_option.value('basic');
 
 
 
@@ -372,22 +395,22 @@ var setup = function() {
   shape001_slider_maxStrokeWeight_text = createElement('h4', 'MaxStrokeWight');
   //shape001_slider_maxStrokeWeight_text.position(shape001x,270);
   shape001_slider_maxStrokeWeight_text.parent('c3-line6');
-  shape001_slider_maxStrokeWeight_text.addClass('shape001');
+  shape001_slider_maxStrokeWeight_text.addClass('shape001, shape001_advanced');
   shape001_slider_maxStrokeWeight_text.attribute('title',"Maximum thickness of the line");
   shape001_slider_maxStrokeWeight = createSlider(0,20,6);
-  shape001_slider_maxStrokeWeight.addClass('slider, shape001');
+  shape001_slider_maxStrokeWeight.addClass('slider, shape001, shape001_advanced');
   //shape001_slider_maxStrokeWeight.position(shape001x+100,285);
   shape001_slider_maxStrokeWeight.parent('c3-line6');
   shape001_slider_maxStrokeWeight.attribute('title',"Maximum thickness of the line");
 
   shape001_slider_minStrokeWeight_text = createElement('h4', 'MinStrokeWight');
   //shape001_slider_minStrokeWeight_text.position(shape001x,300);
-  shape001_slider_minStrokeWeight_text.addClass('shape001');
+  shape001_slider_minStrokeWeight_text.addClass('shape001, shape001_advanced');
   shape001_slider_minStrokeWeight_text.parent('c3-line7');
   shape001_slider_minStrokeWeight_text.attribute('title',"Minimum thickness of the line");
   shape001_slider_minStrokeWeight = createSlider(0,20,1);
   //shape001_slider_minStrokeWeight.position(shape001x+100,315);
-  shape001_slider_minStrokeWeight.addClass('slider, shape001');
+  shape001_slider_minStrokeWeight.addClass('slider, shape001, shape001_advanced');
   shape001_slider_minStrokeWeight.parent('c3-line7');
   shape001_slider_minStrokeWeight.attribute('title',"Minimum thickness of the line");
 
@@ -417,85 +440,85 @@ var setup = function() {
 
   shape001_slider_startColor_text = createElement('h3', 'StartColor');
   //shape001_slider_startColor_text.position(shape001x,435);
-  shape001_slider_startColor_text.addClass('shape001');
+  shape001_slider_startColor_text.addClass('shape001, shape001_advanced');
   shape001_slider_startColor_text.parent('c3-line10');
   shape001_slider_startColor_text.attribute('title',"Inner gradient color");
   shape001_slider_startColor = createSlider(-360,0,0);
   //shape001_slider_startColor.position(shape001x+100,450);
-  shape001_slider_startColor.addClass('slider, shape001');
+  shape001_slider_startColor.addClass('slider, shape001, shape001_advanced');
   shape001_slider_startColor.parent('c3-line10');
   shape001_slider_startColor.attribute('title',"Inner gradient color");
 
   shape001_slider_endColor_text = createElement('h3', 'EndColor');
   //shape001_slider_endColor_text.position(shape001x,465);
-  shape001_slider_endColor_text.addClass('shape001');
+  shape001_slider_endColor_text.addClass('shape001, shape001_advanced');
   shape001_slider_endColor_text.parent('c3-line11');
   shape001_slider_endColor_text.attribute('title',"Outer gradient color");
   shape001_slider_endColor = createSlider(0,360,280);
   //shape001_slider_endColor.position(shape001x+100,480);
-  shape001_slider_endColor.addClass('slider, shape001');
+  shape001_slider_endColor.addClass('slider, shape001, shape001_advanced');
   shape001_slider_endColor.parent('c3-line11');
   shape001_slider_endColor.attribute('title',"Outer gradient color");
 
   shape001_slider_colorOffset_text = createElement('h3', 'ColorOffset');
   //shape001_slider_colorOffset_text.position(shape001x,495);
-  shape001_slider_colorOffset_text.addClass('shape001');
+  shape001_slider_colorOffset_text.addClass('shape001, shape001_advanced');
   shape001_slider_colorOffset_text.parent('c3-line12');
   shape001_slider_colorOffset_text.attribute('title',"set gradient color's position");
   shape001_slider_colorOffset = createSlider(0,10,0.7);
   //shape001_slider_colorOffset.position(shape001x+100,510);
-  shape001_slider_colorOffset.addClass('slider, shape001');
+  shape001_slider_colorOffset.addClass('slider, shape001, shape001_advanced');
   shape001_slider_colorOffset.parent('c3-line12');
   shape001_slider_colorOffset.attribute('title',"set gradient color's position");
 
   shape001_slider_flash_text = createElement('h3', 'Flash');
   //shape001_slider_flash_text.position(shape001x,585);
-  shape001_slider_flash_text.addClass('shape001');
+  shape001_slider_flash_text.addClass('shape001, shape001_advanced');
   shape001_slider_flash_text.parent('c3-line13');
   shape001_slider_flash_text.attribute('title',"flicker frequency");
   shape001_slider_flash = createSlider(0.1,10.0,7.0);
   //shape001_slider_flash.position(shape001x+100,600);
-  shape001_slider_flash.addClass('slider, shape001');
+  shape001_slider_flash.addClass('slider, shape001, shape001_advanced');
   shape001_slider_flash.parent('c3-line13');
   shape001_slider_flash.attribute('title',"flicker frequency");
 
   shape001_slider_speed_text = createElement('h3', 'Speed');
   //shape001_slider_speed_text.position(shape001x,615);
-  shape001_slider_speed_text.addClass('shape001');
+  shape001_slider_speed_text.addClass('shape001, shape001_basic');
   shape001_slider_speed_text.parent('c3-line14');
   shape001_slider_speed_text.attribute('title',"adjust pattern's motion speed");
   shape001_slider_speed = createSlider(3.0,10.0,4.29);
   //shape001_slider_speed.position(shape001x+100,630);
-  shape001_slider_speed.addClass('slider, shape001');
+  shape001_slider_speed.addClass('slider, shape001, shape001_basic');
   shape001_slider_speed.parent('c3-line14');
   shape001_slider_speed.attribute('title',"adjust pattern's motion speed");
 
   shape001_slider_MaxAmplitude_text = createElement('h4', 'MaxAmplitude');
   //shape001_slider_MaxAmplitude_text.position(shape001x,645);
-  shape001_slider_MaxAmplitude_text.addClass('shape001');
+  shape001_slider_MaxAmplitude_text.addClass('shape001, shape001_advanced');
   shape001_slider_MaxAmplitude_text.parent('c3-line15');
   shape001_slider_MaxAmplitude_text.attribute('title',"Maximum speed");
   shape001_slider_MaxAmplitude = createSlider(0,250,135);
   //shape001_slider_MaxAmplitude.position(shape001x+100,660);
-  shape001_slider_MaxAmplitude.addClass('slider, shape001');
+  shape001_slider_MaxAmplitude.addClass('slider, shape001, shape001_advanced');
   shape001_slider_MaxAmplitude.parent('c3-line15');
   shape001_slider_MaxAmplitude.attribute('title',"Maximum speed");
 
   shape001_slider_MinAmplitude_text = createElement('h4', 'MinAmplitude');
   //shape001_slider_MinAmplitude_text.position(shape001x,675);
-  shape001_slider_MinAmplitude_text.addClass('shape001');
+  shape001_slider_MinAmplitude_text.addClass('shape001, shape001_advanced');
   shape001_slider_MinAmplitude_text.parent('c3-line16');
   shape001_slider_MinAmplitude_text.attribute('title',"Minimum speed");
   shape001_slider_MinAmplitude = createSlider(-250,0,-250);
   //shape001_slider_MinAmplitude.position(shape001x+100,690);
-  shape001_slider_MinAmplitude.addClass('slider, shape001');
+  shape001_slider_MinAmplitude.addClass('slider, shape001, shape001_advanced');
   shape001_slider_MinAmplitude.parent('c3-line16');
   shape001_slider_MinAmplitude.attribute('title',"Minimum speed");
 
   shape001_randomButton = createButton("Random");
   shape001_randomButton.mousePressed(shape001_random);
   //shape001_randomButton.position(shape001x,800);
-  shape001_randomButton.addClass('shape001');
+  shape001_randomButton.addClass('shape001_randomButton, shape001');
   shape001_randomButton.parent('c3-line17');
   shape001_randomButton.attribute('title',"Random all variables");
 
@@ -518,6 +541,18 @@ var setup = function() {
   for (var j = 0; j < shape002_control.length; j++) {
     shape002_control[j].hide();
   }
+
+  //option selector
+  shape001_option_advanced = selectAll('.shape001_advanced');
+  for (var i = 0; i < shape001_option_advanced.length; i++) {
+    shape001_option_advanced[i].hide();
+  }
+
+  shape001_option_basic = selectAll('.shape001_basic');
+  for (var i = 0; i < shape001_option_basic.length; i++) {
+    shape001_option_basic[i].show();
+  }
+
 };
 var currentFrame;
 function startRecording() {
@@ -546,31 +581,84 @@ function stopRecording() {
 
 }
 
+function shape001Option() {
+  if (shape001_option.value() == 'basic') {
+    for (var i = 0; i < shape001_option_advanced.length; i++) {
+      shape001_option_advanced[i].hide();
+    }
+    for (var i = 0; i < shape001_option_basic.length; i++) {
+      shape001_option_basic[i].show();
+    }
+  }
+
+  if (shape001_option.value() == 'advanced') {
+    for (var i = 0; i < shape001_option_advanced.length; i++) {
+      shape001_option_advanced[i].show();
+    }
+    for (var i = 0; i < shape001_option_basic.length; i++) {
+      shape001_option_basic[i].hide();
+    }
+  }
+}
+
 var toggle_01 = true;
 var toggle_02 = false;
+var toggle_03 = false;
 
 function shape001display() {
-  for (var i = 0; i < shape001_control.length; i++) {
-    shape001_control[i].show();
+  for (var i = 0; i < shape001_option_basic.length; i++) {
+    shape001_option_basic[i].show();
+  }
+  for (var j = 0; j < shape001_control.length; j++) {
+    shape001_control[j].show();
   }
   for (var j = 0; j < shape002_control.length; j++) {
     shape002_control[j].hide();
   }
+
   toggle_01 = true;
   toggle_02 = false;
+  toggle_03 = false;
 
 }
 function shape002display() {
-  for (var i = 0; i < shape001_control.length; i++) {
-    shape001_control[i].hide();
+  for (var i = 0; i < shape001_option_advanced.length; i++) {
+    shape001_option_advanced[i].hide();
+  }
+  for (var i = 0; i < shape001_option_basic.length; i++) {
+    shape001_option_basic[i].hide();
+  }
+  for (var j = 0; j < shape001_control.length; j++) {
+    shape001_control[j].hide();
   }
   for (var j = 0; j < shape002_control.length; j++) {
     shape002_control[j].show();
   }
   toggle_01 = false;
   toggle_02 = true;
+  toggle_03 = false;
 
 }
+
+function shape003display() {
+  for (var i = 0; i < shape001_option_advanced.length; i++) {
+    shape001_option_advanced[i].hide();
+  }
+  for (var i = 0; i < shape001_option_basic.length; i++) {
+    shape001_option_basic[i].hide();
+  }
+  for (var j = 0; j < shape001_control.length; j++) {
+    shape001_control[j].hide();
+  }
+  for (var j = 0; j < shape002_control.length; j++) {
+    shape002_control[j].hide();
+  }
+  background(bgColor);
+  toggle_01 = false;
+  toggle_02 = false;
+  toggle_03 = true;
+}
+
 
 
 
@@ -583,12 +671,20 @@ var draw = function() {
 
     if (toggle_01) {
       drawshape001();
+      //basic and advanced control
+
     }
 
     if (toggle_02) {
       drawshape002();
       //toggle_02 = !toggle_02;
     }
+
+    if (toggle_03) {
+      noStroke();
+      drawshape003();
+    }
+
 
 
     //Text part
@@ -663,14 +759,16 @@ function drawshape001() {
    //stroke(params.Color, map(i,0,params.Number/0.9,0,100));
 
    //stroke(map(i,0,params.Number/0.7,0,360),100,100,50);
-   if (fillMode == 'Gradient') {
+
+   if (shape001_option.value() == 'advanced') {
+    shape001_radio_fillMode.value('Gradient');
     colorMode(HSB);
     stroke(map(i,0,shape001_slider_number.value()/shape001_slider_colorOffset.value(),shape001_slider_startColor.value(),shape001_slider_endColor.value()),100,100,map(i,0,shape001_slider_number.value()/0.9,0,100));
 
   }
-  else if (fillMode == 'Solid'){
+  else if (shape001_option.value() == 'basic'){
     colorMode(RGB);
-
+    shape001_radio_fillMode.value('Solid');
     stroke(shape001_colorPicker.color());
 
   }
@@ -696,6 +794,31 @@ function drawshape002() {
 
 }
 
+function drawshape003() {
+  frameRate(60);
+  // background(bgColor);
+  for(var i = 0; i < shape003_nums; i++){
+		var radius = map(i,0,shape003_nums,1,2);
+		// var alpha = map(i,0,shape003_nums,0,150);
+    var alpha = 225;
+
+		fill(69,33,124,alpha);
+		shape003_particles_a[i].move();
+		shape003_particles_a[i].display(radius);
+		shape003_particles_a[i].checkEdge();
+
+		fill(7,153,242,alpha);
+		shape003_particles_b[i].move();
+		shape003_particles_b[i].display(radius);
+		shape003_particles_b[i].checkEdge();
+
+		fill(7,153,242,alpha);
+		shape003_particles_c[i].move();
+		shape003_particles_c[i].display(radius);
+		shape003_particles_c[i].checkEdge();
+	}
+}
+
 function shape002_drawLine(x,y,width,height){
 
   shape002_step = random(40,80);
@@ -708,6 +831,33 @@ function shape002_drawLine(x,y,width,height){
     line(x+width,y,x,y+height);
   }
 
+}
+
+function shape003_Particle(x, y){
+	this.dir = createVector(0, 0);
+	this.vel = createVector(0, 0);
+	this.pos = createVector(x, y);
+	this.speed = 0.4;
+
+	this.move = function(){
+		var angle = noise(this.pos.x/shape003_noiseScale, this.pos.y/shape003_noiseScale)*TWO_PI*shape003_noiseScale;
+		this.dir.x = cos(angle);
+		this.dir.y = sin(angle);
+		this.vel = this.dir.copy();
+		this.vel.mult(this.speed);
+		this.pos.add(this.vel);
+	}
+
+	this.checkEdge = function(){
+		if(this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0){
+			this.pos.x = random(50, width);
+			this.pos.y = random(50, height);
+		}
+	}
+
+	this.display = function(r){
+		ellipse(this.pos.x, this.pos.y, r, r);
+	}
 }
 
 function handleFile(file) {

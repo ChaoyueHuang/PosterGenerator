@@ -219,6 +219,7 @@ textarea:hover {
   text-align: left;
   padding-left: 20%;
   padding-top: 10%;
+  margin-left: 10%;
 }
 
 .shape001, .shape002 {
@@ -232,4 +233,8 @@ textarea:hover {
 
 .option {
   color: white;
+}
+
+.shape001_randomButton {
+  color: black;
 }
