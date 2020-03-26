@@ -108,6 +108,14 @@ var shape002_flag;
 
 var shape002_slider_lineWeight;
 var shape002_slider_lineWeight_text;
+var shape002_slider_lineSpace;
+var shape002_slider_lineSpace_text;
+var shape002_color_text;
+var shape002_colorPicker;
+var shape002_slider_xoffset;
+var shape002_slider_xoffset_text;
+var shape002_slider_yoffset;
+var shape002_slider_yoffset_text;
 var shape002_control;
 
 //shape003 Variables
@@ -526,15 +534,49 @@ var setup = function() {
 
   //shape002 GUI
   shape002_slider_lineWeight_text = createElement('h3', 'LineWeight');
-  //shape001_slider_lineWeight_text.position(shape001x,150);
   shape002_slider_lineWeight_text.addClass('shape002');
   shape002_slider_lineWeight_text.parent('c3-line2');
   shape002_slider_lineWeight_text.attribute('title',"adjust line weight");
   shape002_slider_lineWeight = createSlider(1,60,25);
-  //shape002_slider_lineWeight.position(shape001x+100,165);
   shape002_slider_lineWeight.addClass('slider, shape002');
   shape002_slider_lineWeight.parent('c3-line2');
   shape002_slider_lineWeight.attribute('title',"adjust line weight");
+
+  shape002_slider_lineSpace_text = createElement('h3', 'LineSpace');
+  shape002_slider_lineSpace_text.addClass('shape002');
+  shape002_slider_lineSpace_text.parent('c3-line3');
+  shape002_slider_lineSpace_text.attribute('title',"adjust line space");
+  shape002_slider_lineSpace = createSlider(-30,30,0);
+  shape002_slider_lineSpace.addClass('slider, shape002');
+  shape002_slider_lineSpace.parent('c3-line3');
+  shape002_slider_lineSpace.attribute('title',"adjust line space");
+
+  shape002_color_text = createElement('h3', 'Color');
+  shape002_color_text.addClass('shape002');
+  shape002_color_text.parent('c3-line4');
+
+  shape002_colorPicker = createColorPicker('#9370DB');
+  shape002_colorPicker.addClass('colorPicker, shape002');
+  shape002_colorPicker.parent('c3-line4');
+
+  shape002_slider_xoffset_text = createElement('h3', 'xOffset');
+  shape002_slider_xoffset_text.addClass('shape002');
+  shape002_slider_xoffset_text.parent('c3-line5');
+  shape002_slider_xoffset_text.attribute('title', "adjust horizontal starting position");
+  shape002_slider_xoffset = createSlider(-width, width, 0);
+  shape002_slider_xoffset.addClass('slider, shape002');
+  shape002_slider_xoffset.parent('c3-line5');
+  shape002_slider_xoffset.attribute('title', "adjust horizontal starting position");
+
+  shape002_slider_yoffset_text = createElement('h3', 'yOffset');
+  shape002_slider_yoffset_text.addClass('shape002');
+  shape002_slider_yoffset_text.parent('c3-line6');
+  shape002_slider_yoffset_text.attribute('title', "adjust horizontal starting position");
+  shape002_slider_yoffset = createSlider(-height, height, 0);
+  shape002_slider_yoffset.addClass('slider, shape002');
+  shape002_slider_yoffset.parent('c3-line6');
+  shape002_slider_yoffset.attribute('title', "adjust vertical starting position");
+
 
 
   shape002_control = selectAll('.shape002');
@@ -783,8 +825,8 @@ function drawshape002() {
   frameRate(3);
   //if (shape002_flag) {
     background(bgColor);
-    for (var i = 0; i < width; i += shape002_step) {
-      for (var j = 0; j < height; j += shape002_step) {
+    for (var i = 0+shape002_slider_xoffset.value(); i < width+shape002_slider_xoffset.value(); i += shape002_step) {
+      for (var j = 0+shape002_slider_yoffset.value(); j < height+shape002_slider_yoffset.value(); j += shape002_step) {
           shape002_drawLine(i,j,shape002_step,shape002_step);
       }
 
@@ -821,8 +863,9 @@ function drawshape003() {
 
 function shape002_drawLine(x,y,width,height){
 
-  shape002_step = random(40,80);
-  stroke(random(50,255),random(50,255));
+  shape002_step = random(40+shape002_slider_lineSpace.value(),80+shape002_slider_lineSpace.value());
+  // stroke(random(50,255),random(50,255));
+  stroke(shape002_colorPicker.value());
   strokeWeight(shape002_slider_lineWeight.value());
   b = random(0.0,1.0);
   if (b > 0.5) {
