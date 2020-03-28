@@ -122,8 +122,18 @@ var shape002_control;
 var shape003_particles_a = [];
 var shape003_particles_b = [];
 var shape003_particles_c = [];
-var shape003_nums =200;
-var shape003_noiseScale = 800;
+var shape003_slider_number;
+var shape003_slider_number_text;
+var shape003_slider_noiseScale;
+var shape003_slider_noiseScale_text;
+var color_a_num = 0;
+var color_b_num = 0;
+var color_c_num = 0;
+var color_a;
+var color_b;
+var color_c;
+var shape003_randomButton;
+var shape003_control;
 
 
 function preload() {
@@ -131,7 +141,9 @@ function preload() {
 }
 
 var setup = function() {
-
+  color_a = color(69, 33, 124);
+  color_b = color(69, 33, 124);
+  color_c = color(69, 33, 124);
   //dat.GUI.toggleHide();
   //createCanvas(windowWidth, windowHeight);
   var cnv = createCanvas(539, 696);
@@ -163,13 +175,6 @@ var setup = function() {
   //initialize shape002
   shape002_lineWeight = 10;
   shape002_flag = false;
-
-  //initialize shape003
-  for(var i = 0; i < shape003_nums; i++){
-		shape003_particles_a[i] = new shape003_Particle(random(0, width),random(0,height));
-		shape003_particles_b[i] = new shape003_Particle(random(0, width),random(0,height));
-		shape003_particles_c[i] = new shape003_Particle(random(0, width),random(0,height));
-	}
 
   //Text Input GUI
   textControlxOffset = -500;
@@ -577,7 +582,42 @@ var setup = function() {
   shape002_slider_yoffset.parent('c3-line6');
   shape002_slider_yoffset.attribute('title', "adjust vertical starting position");
 
+  //shape003 GUI
+  shape003_slider_number_text = createElement('h4', 'ParticleNumber');
+  shape003_slider_number_text.addClass('shape003');
+  shape003_slider_number_text.parent('c3-line2');
+  shape003_slider_number_text.attribute('title',"adjust particle number");
+  shape003_slider_number = createSlider(1,200,200);
+  shape003_slider_number.addClass('slider, shape003');
+  shape003_slider_number.parent('c3-line2');
+  shape003_slider_number.attribute('title',"adjust particle number");
 
+  shape003_slider_noiseScale_text = createElement('h3', 'NoiseScale');
+  shape003_slider_noiseScale_text.addClass('shape003');
+  shape003_slider_noiseScale_text.parent('c3-line3');
+  shape003_slider_noiseScale_text.attribute('title',"adjust noise scale");
+  shape003_slider_noiseScale = createSlider(200,800,400);
+  shape003_slider_noiseScale.addClass('slider, shape003');
+  shape003_slider_noiseScale.parent('c3-line3');
+  shape003_slider_noiseScale.attribute('title',"adjust noise scale");
+
+  shape003_randomButton = createButton("Random");
+  shape003_randomButton.mousePressed(colorRandom);
+  shape003_randomButton.addClass('shape003_randomButton, shape003');
+  shape003_randomButton.parent('c3-line4');
+  shape003_randomButton.attribute('title',"Random color");
+
+  //initialize shape003
+  for(var i = 0; i < shape003_slider_number.value(); i++){
+    shape003_particles_a[i] = new shape003_Particle(random(0, width),random(0,height));
+    shape003_particles_b[i] = new shape003_Particle(random(0, width),random(0,height));
+    shape003_particles_c[i] = new shape003_Particle(random(0, width),random(0,height));
+  }
+
+  shape003_control = selectAll('.shape003');
+  for (var j = 0; j < shape003_control.length; j++) {
+    shape003_control[j].hide();
+  }
 
   shape002_control = selectAll('.shape002');
   for (var j = 0; j < shape002_control.length; j++) {
@@ -594,6 +634,8 @@ var setup = function() {
   for (var i = 0; i < shape001_option_basic.length; i++) {
     shape001_option_basic[i].show();
   }
+
+
 
 };
 var currentFrame;
@@ -654,8 +696,11 @@ function shape001display() {
   for (var j = 0; j < shape001_control.length; j++) {
     shape001_control[j].show();
   }
-  for (var j = 0; j < shape002_control.length; j++) {
-    shape002_control[j].hide();
+  for (var k = 0; k < shape002_control.length; k++) {
+    shape002_control[k].hide();
+  }
+  for (var l = 0; l < shape003_control.length; l++) {
+    shape003_control[l].hide();
   }
 
   toggle_01 = true;
@@ -667,14 +712,17 @@ function shape002display() {
   for (var i = 0; i < shape001_option_advanced.length; i++) {
     shape001_option_advanced[i].hide();
   }
-  for (var i = 0; i < shape001_option_basic.length; i++) {
-    shape001_option_basic[i].hide();
+  for (var j = 0; j < shape001_option_basic.length; j++) {
+    shape001_option_basic[j].hide();
   }
-  for (var j = 0; j < shape001_control.length; j++) {
-    shape001_control[j].hide();
+  for (var k = 0; k < shape001_control.length; k++) {
+    shape001_control[k].hide();
   }
-  for (var j = 0; j < shape002_control.length; j++) {
-    shape002_control[j].show();
+  for (var l = 0; l < shape002_control.length; l++) {
+    shape002_control[l].show();
+  }
+  for (var m = 0; m < shape003_control.length; m++) {
+    shape003_control[m].hide();
   }
   toggle_01 = false;
   toggle_02 = true;
@@ -686,19 +734,29 @@ function shape003display() {
   for (var i = 0; i < shape001_option_advanced.length; i++) {
     shape001_option_advanced[i].hide();
   }
-  for (var i = 0; i < shape001_option_basic.length; i++) {
-    shape001_option_basic[i].hide();
+  for (var j = 0; j < shape001_option_basic.length; j++) {
+    shape001_option_basic[j].hide();
   }
-  for (var j = 0; j < shape001_control.length; j++) {
-    shape001_control[j].hide();
+  for (var k = 0; k < shape001_control.length; k++) {
+    shape001_control[k].hide();
   }
-  for (var j = 0; j < shape002_control.length; j++) {
-    shape002_control[j].hide();
+  for (var l = 0; l < shape002_control.length; l++) {
+    shape002_control[l].hide();
+  }
+  for (var m = 0; m < shape003_control.length; m++) {
+    shape003_control[m].show();
   }
   background(bgColor);
   toggle_01 = false;
   toggle_02 = false;
   toggle_03 = true;
+
+  for(var k = 0; k < shape003_slider_number.value(); k++){
+    shape003_particles_a[i] = new shape003_Particle(random(0, width),random(0,height));
+    shape003_particles_b[i] = new shape003_Particle(random(0, width),random(0,height));
+    shape003_particles_c[i] = new shape003_Particle(random(0, width),random(0,height));
+  }
+
 }
 
 
@@ -839,22 +897,29 @@ function drawshape002() {
 function drawshape003() {
   frameRate(60);
   // background(bgColor);
-  for(var i = 0; i < shape003_nums; i++){
-		var radius = map(i,0,shape003_nums,1,2);
+
+  for(var i = 0; i < shape003_slider_number.value(); i++){
+		var radius = map(i,0,shape003_slider_number.value(),1,2);
 		// var alpha = map(i,0,shape003_nums,0,150);
     var alpha = 225;
-
-		fill(69,33,124,alpha);
+    var c = color(65);
+		// fill(69,33,124,alpha);
+    // fill(100,211,23,alpha);
+    fill(color_a);
 		shape003_particles_a[i].move();
 		shape003_particles_a[i].display(radius);
 		shape003_particles_a[i].checkEdge();
 
-		fill(7,153,242,alpha);
+		// fill(7,153,242,alpha);
+    // fill(255,214,0,alpha);
+    fill(color_b);
 		shape003_particles_b[i].move();
 		shape003_particles_b[i].display(radius);
 		shape003_particles_b[i].checkEdge();
 
-		fill(7,153,242,alpha);
+		// fill(107,153,242,alpha);
+    // fill(255,145,0,alpha);
+    fill(color_c);
 		shape003_particles_c[i].move();
 		shape003_particles_c[i].display(radius);
 		shape003_particles_c[i].checkEdge();
@@ -883,7 +948,7 @@ function shape003_Particle(x, y){
 	this.speed = 0.4;
 
 	this.move = function(){
-		var angle = noise(this.pos.x/shape003_noiseScale, this.pos.y/shape003_noiseScale)*TWO_PI*shape003_noiseScale;
+		var angle = noise(this.pos.x/shape003_slider_noiseScale.value(), this.pos.y/shape003_slider_noiseScale.value())*TWO_PI*shape003_slider_noiseScale.value();
 		this.dir.x = cos(angle);
 		this.dir.y = sin(angle);
 		this.vel = this.dir.copy();
@@ -967,6 +1032,160 @@ function shape001_random(){
   var rMinAmplitude = random(-250,0);
   shape001_slider_MinAmplitude.value(rMinAmplitude);
 
+}
+
+function colorRandom() {
+  clear();
+  background(bgColor);
+  color_a_num = floor(random(0,15));
+  if (color_a_num == 0) {
+    color_a = color(229,57,53);
+  }
+  else if (color_a_num == 1) {
+    color_a = color(245,0,87);
+  }
+  else if (color_a_num == 2) {
+    color_a = color(142,36,170);
+  }
+  else if (color_a_num == 3) {
+    color_a = color(69,33,124);
+  }
+  else if (color_a_num == 4) {
+    color_a = color(7,153,242);
+  }
+  else if (color_a_num == 5) {
+    color_a = color(107,153,242);
+  }
+  else if (color_a_num == 6) {
+    color_a = color(129,212,250);
+  }
+  else if (color_a_num == 7) {
+    color_a = color(24,255,255);
+  }
+  else if (color_a_num == 8) {
+    color_a = color(100,255,218);
+  }
+  else if (color_a_num == 9) {
+    color_a = color(100,211,23);
+  }
+  else if (color_a_num == 10) {
+    color_a = color(178,255,89);
+  }
+  else if (color_a_num == 11) {
+    color_a = color(212,255,87);
+  }
+  else if (color_a_num == 12) {
+    color_a = color(255,214,0);
+  }
+  else if (color_a_num == 13) {
+    color_a = color(255,196,0);
+  }
+  else if (color_a_num == 14) {
+    color_a = color(255,145,0);
+  }
+  else if (color_a_num == 15) {
+    color_a = color(255,61,0);
+  }
+
+  color_b_num = floor(random(0,15));
+  if (color_b_num == 0) {
+    color_b = color(229,57,53);
+  }
+  else if (color_b_num == 1) {
+    color_b = color(245,0,87);
+  }
+  else if (color_b_num == 2) {
+    color_b = color(142,36,170);
+  }
+  else if (color_b_num == 3) {
+    color_b = color(69,33,124);
+  }
+  else if (color_b_num == 4) {
+    color_b = color(7,153,242);
+  }
+  else if (color_b_num == 5) {
+    color_b = color(107,153,242);
+  }
+  else if (color_b_num == 6) {
+    color_b = color(129,212,250);
+  }
+  else if (color_b_num == 7) {
+    color_b = color(24,255,255);
+  }
+  else if (color_b_num == 8) {
+    color_b = color(100,255,218);
+  }
+  else if (color_b_num == 9) {
+    color_b = color(100,211,23);
+  }
+  else if (color_b_num == 10) {
+    color_b = color(178,255,89);
+  }
+  else if (color_b_num == 11) {
+    color_b = color(212,255,87);
+  }
+  else if (color_b_num == 12) {
+    color_b = color(255,214,0);
+  }
+  else if (color_b_num == 13) {
+    color_b = color(255,196,0);
+  }
+  else if (color_b_num == 14) {
+    color_b = color(255,145,0);
+  }
+  else if (color_b_num == 15) {
+    color_b = color(255,61,0);
+  }
+
+  color_c_num = floor(random(0,15));
+  if (color_c_num == 0) {
+    color_c = color(229,57,53);
+  }
+  else if (color_c_num == 1) {
+    color_c = color(245,0,87);
+  }
+  else if (color_c_num == 2) {
+    color_c = color(142,36,170);
+  }
+  else if (color_c_num == 3) {
+    color_c = color(69,33,124);
+  }
+  else if (color_c_num == 4) {
+    color_c = color(7,153,242);
+  }
+  else if (color_c_num == 5) {
+    color_c = color(107,153,242);
+  }
+  else if (color_c_num == 6) {
+    color_c = color(129,212,250);
+  }
+  else if (color_c_num == 7) {
+    color_c = color(24,255,255);
+  }
+  else if (color_c_num == 8) {
+    color_c = color(100,255,218);
+  }
+  else if (color_c_num == 9) {
+    color_c = color(100,211,23);
+  }
+  else if (color_c_num == 10) {
+    color_c = color(178,255,89);
+  }
+  else if (color_c_num == 11) {
+    color_c = color(212,255,87);
+  }
+  else if (color_c_num == 12) {
+    color_c = color(255,214,0);
+  }
+  else if (color_c_num == 13) {
+    color_c = color(255,196,0);
+  }
+  else if (color_c_num == 14) {
+    color_c = color(255,145,0);
+  }
+  else if (color_c_num == 15) {
+    color_c = color(255,61,0);
+  }
 }
 
 function saveImage() {

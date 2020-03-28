@@ -231,9 +231,10 @@ textarea:hover {
   margin-top: 20px;
 }
 
-.option {
+/* .option {
   color: white;
-}
+  background-color: white;
+} */
 
 .shape001_randomButton {
   color: black;
