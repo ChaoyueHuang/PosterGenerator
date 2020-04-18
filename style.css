@@ -204,13 +204,21 @@ textarea:hover {
 }
 
 .imageArea {
-  margin-left: 70%;
+  /* margin-left: 70%; */
+  margin-top: 6%;
   text-align: left;
+  display:inline;
+  /* width: 150px; */
+  float: left;
 }
 
 .gifArea {
-  margin-right: 60%;
+  /* margin-right: 60%; */
+  margin-top: 6%;
   text-align: right;
+  display:inline;
+  /* width: 150px; */
+  float: right;
   /* display: inline-block; */
 }
 

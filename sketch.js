@@ -78,6 +78,14 @@ var imageLocY_slider;
 var imageLocX_text;
 var imageLocY_text;
 
+//Background color Variables
+var bgcolor_text;
+var bgcolor_colorPicker;
+
+//text color Variables
+var textcolor_text;
+var textcolor_colorPicker;
+
 //Save Variables
 var saveImage_button;
 var saveImageText;
@@ -474,6 +482,24 @@ var setup = function() {
   imageLocY_slider.addClass('slider','column-1');
   imageLocY_slider.parent('c1-line-15');
 
+  //bgcolor GUI
+  bgcolor_text = createElement('h2','Background Color');
+  bgcolor_text.addClass('column-1');
+  bgcolor_text.parent('c1-line-16');
+
+  bgcolor_colorPicker = createColorPicker('#000000');
+  bgcolor_colorPicker.addClass('colorPicker, column-1');
+  bgcolor_colorPicker.parent('c1-line-16');
+
+  //textcolor GUI
+  textcolor_text = createElement('h2','Text Color');
+  textcolor_text.addClass('column-1');
+  textcolor_text.parent('c1-line-17');
+
+  textcolor_colorPicker = createColorPicker('#ffffff');
+  textcolor_colorPicker.addClass('colorPicker, column-1');
+  textcolor_colorPicker.parent('c1-line-17');
+
   //Save GUI
   saveImageText = createElement('h2',"Save design as an Image");
   //saveImageText.position(720,800);
@@ -743,7 +769,8 @@ var setup = function() {
   shape001_randomButton = createButton("Random");
   shape001_randomButton.mousePressed(shape001_random);
   //shape001_randomButton.position(shape001x,800);
-  shape001_randomButton.addClass('shape001_randomButton, shape001');
+  shape001_randomButton.addClass('shape001_randomButton');
+  shape001_randomButton.addClass('shape001');
   shape001_randomButton.parent('c3-line17');
   shape001_randomButton.attribute('title',"Random all variables");
 
@@ -1003,7 +1030,7 @@ var draw = function() {
     titleChangeFont();
     textSize(title_slider_size.value());
     colorMode(RGB);
-    fill(255);
+    fill(textcolor_colorPicker.value());
     noStroke();
     textStyle(BOLD);
     text(input_title.value(), title_slider_x.value(), title_slider_y.value());
@@ -1035,7 +1062,7 @@ var draw = function() {
     // save("myPoster.svg");
   //}
 
-      //Image part
+      // Image part
       if (img) {
         image(img, imageLocX_slider.value(), imageLocY_slider.value(), img.width*imageSize_slider.value()/10, img.height*imageSize_slider.value()/10);
       }
@@ -1064,7 +1091,7 @@ function recordCanvas(endFrame) {
 function drawshape001() {
 
   frameRate(60);
-  background(bgColor);
+  background(bgcolor_colorPicker.value());
   //Mian graphic part
   var fillMode = shape001_radio_fillMode.value();
   for (var i = 0; i < shape001_slider_number.value(); i = i + shape001_slider_step.value()) {
@@ -1099,7 +1126,7 @@ function drawshape002() {
 
   frameRate(3);
   //if (shape002_flag) {
-    background(bgColor);
+    background(bgcolor_colorPicker.value());
     for (var i = 0+shape002_slider_xoffset.value(); i < width+shape002_slider_xoffset.value(); i += shape002_step) {
       for (var j = 0+shape002_slider_yoffset.value(); j < height+shape002_slider_yoffset.value(); j += shape002_step) {
           shape002_drawLine(i,j,shape002_step,shape002_step);
