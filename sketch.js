@@ -236,22 +236,23 @@ var setup = function() {
   shape002_flag = false;
 
   //Text typographic GUI
-  typographic1_button = createButton("Typographic a");
+  typographic1_button = createButton("Style a");
   typographic1_button.mousePressed(typographic1display);
   typographic1_button.parent('c1-line-1');
+  typographic1_button.addClass('typographic_button');
   // typographic1_button.attribute('title','This algorithm generates vertex based shape.');
 
-  typographic2_button = createButton("Typographic b");
+  typographic2_button = createButton("Style b");
   typographic2_button.mousePressed(typographic2display);
   typographic2_button.parent('c1-line-1');
   // typographic2_button.attribute('title','This algorithm generates vertex based shape.');
 
-  typographic3_button = createButton("Typographic c");
+  typographic3_button = createButton("Style c");
   typographic3_button.mousePressed(typographic3display);
   typographic3_button.parent('c1-line-1');
   // typographic3_button.attribute('title','This algorithm generates vertex based shape.');
 
-  typographic4_button = createButton("Typographic c");
+  typographic4_button = createButton("Style d");
   typographic4_button.mousePressed(typographic4display);
   typographic4_button.parent('c1-line-1');
   // typographic4_button.attribute('title','This algorithm generates vertex based shape.');
@@ -260,188 +261,188 @@ var setup = function() {
   textControlxOffset = -500;
 
   input_title_text = createElement('h2','Title');
-  input_title_text.parent('c1-line-2');
+  input_title_text.parent('c1-line-3');
   input_title_text.addClass('column-1');
   input_title = createInput('EVAN ABEL');
   input_title.addClass('textInput','column-1');
-  input_title.parent('c1-line-2');
+  input_title.parent('c1-line-3');
 
   title_select = createSelect();
   title_select.option('Arial');
   title_select.option('ArialBlack');
   title_select.option('Georgia');
   title_select.option('TimesNewRoman');
-  title_select.parent('c1-line-2');
+  title_select.parent('c1-line-3');
   title_select.addClass('column-1');
   title_select.changed(titleChangeFont);
 
   title_slider_size_text = createElement('h3','size');
-  title_slider_size_text.parent('c1-line-2');
+  title_slider_size_text.parent('c1-line-3');
   title_slider_size_text.addClass('column-1');
-  title_slider_size = createSlider(0,100,34);
-  title_slider_size.parent('c1-line-2');
+  title_slider_size = createSlider(0,120,34);
+  title_slider_size.parent('c1-line-3');
   title_slider_size.addClass('column-1');
 
   title_slider_x_text = createElement('h3','x');
-  title_slider_x_text.parent('c1-line-3');
+  title_slider_x_text.parent('c1-line-4');
   title_slider_x_text.addClass('column-1');
   title_slider_x = createSlider(0,width,20);
-  title_slider_x.parent('c1-line-3');
+  title_slider_x.parent('c1-line-4');
   title_slider_x.addClass('column-1');
 
   title_slider_y_text = createElement('h3','y');
-  title_slider_y_text.parent('c1-line-3');
+  title_slider_y_text.parent('c1-line-4');
   title_slider_y_text.addClass('column-1');
   title_slider_y = createSlider(0,height,53);
-  title_slider_y.parent('c1-line-3');
+  title_slider_y.parent('c1-line-4');
   title_slider_y.addClass('column-1');
 
   input_subtitle1_text = createElement('h2','Subtitle 1');
-  input_subtitle1_text.parent('c1-line-4');
+  input_subtitle1_text.parent('c1-line-5');
   input_subtitle1_text.addClass('column-1');
   input_subtitle1 = createInput('IDM Speaker Series 2020');
   input_subtitle1.addClass('textInput','column-1');
-  input_subtitle1.parent('c1-line-4');
+  input_subtitle1.parent('c1-line-5');
 
   subtitle1_select = createSelect();
   subtitle1_select.option('Arial');
   subtitle1_select.option('ArialBlack');
   subtitle1_select.option('Georgia');
   subtitle1_select.option('TimesNewRoman');
-  subtitle1_select.parent('c1-line-4');
+  subtitle1_select.parent('c1-line-5');
   subtitle1_select.addClass('column-1');
   subtitle1_select.changed(subtitle1ChangeFont);
 
   subtitle1_slider_size_text = createElement('h3','size');
-  subtitle1_slider_size_text.parent('c1-line-4');
+  subtitle1_slider_size_text.parent('c1-line-5');
   subtitle1_slider_size_text.addClass('column-1');
   subtitle1_slider_size = createSlider(0,100,18);
-  subtitle1_slider_size.parent('c1-line-4');
+  subtitle1_slider_size.parent('c1-line-5');
   subtitle1_slider_size.addClass('column-1');
 
   subtitle1_slider_x_text = createElement('h3','x');
-  subtitle1_slider_x_text.parent('c1-line-5');
+  subtitle1_slider_x_text.parent('c1-line-6');
   subtitle1_slider_x_text.addClass('column-1');
   subtitle1_slider_x = createSlider(0,width,300);
-  subtitle1_slider_x.parent('c1-line-5');
+  subtitle1_slider_x.parent('c1-line-6');
   subtitle1_slider_x.addClass('column-1');
 
   subtitle1_slider_y_text = createElement('h3','y');
-  subtitle1_slider_y_text.parent('c1-line-5');
+  subtitle1_slider_y_text.parent('c1-line-6');
   subtitle1_slider_y_text.addClass('column-1');
   subtitle1_slider_y = createSlider(0,height,53);
-  subtitle1_slider_y.parent('c1-line-5');
+  subtitle1_slider_y.parent('c1-line-6');
   subtitle1_slider_y.addClass('column-1');
 
   input_subtitle2_text = createElement('h2','Subtitle 2');
-  input_subtitle2_text.parent('c1-line-6');
+  input_subtitle2_text.parent('c1-line-7');
   input_subtitle2_text.addClass('column-1');
   input_subtitle2 = createInput('DOCUMENTARY PRODUCTION');
   input_subtitle2.addClass('textInput','column-1');
-  input_subtitle2.parent('c1-line-6');
+  input_subtitle2.parent('c1-line-7');
 
   subtitle2_select = createSelect();
   subtitle2_select.option('Arial');
   subtitle2_select.option('ArialBlack');
   subtitle2_select.option('Georgia');
   subtitle2_select.option('TimesNewRoman');
-  subtitle2_select.parent('c1-line-6');
+  subtitle2_select.parent('c1-line-7');
   subtitle2_select.addClass('column-1');
   subtitle2_select.changed(subtitle2ChangeFont);
 
   subtitle2_slider_size_text = createElement('h3','size');
-  subtitle2_slider_size_text.parent('c1-line-6');
+  subtitle2_slider_size_text.parent('c1-line-7');
   subtitle2_slider_size_text.addClass('column-1');
   subtitle2_slider_size = createSlider(0,100,14);
-  subtitle2_slider_size.parent('c1-line-6');
+  subtitle2_slider_size.parent('c1-line-7');
   subtitle2_slider_size.addClass('column-1');
 
   subtitle2_slider_x_text = createElement('h3','x');
-  subtitle2_slider_x_text.parent('c1-line-7');
+  subtitle2_slider_x_text.parent('c1-line-8');
   subtitle2_slider_x_text.addClass('column-1');
   subtitle2_slider_x = createSlider(0,width,20);
-  subtitle2_slider_x.parent('c1-line-7');
+  subtitle2_slider_x.parent('c1-line-8');
   subtitle2_slider_x.addClass('column-1');
 
   subtitle2_slider_y_text = createElement('h3','y');
-  subtitle2_slider_y_text.parent('c1-line-7');
+  subtitle2_slider_y_text.parent('c1-line-8');
   subtitle2_slider_y_text.addClass('column-1');
   subtitle2_slider_y = createSlider(0,height,90);
-  subtitle2_slider_y.parent('c1-line-7');
+  subtitle2_slider_y.parent('c1-line-8');
   subtitle2_slider_y.addClass('column-1');
 
   input_subtitle3_text = createElement('h2','Subtitle 3');
-  input_subtitle3_text.parent('c1-line-8');
+  input_subtitle3_text.parent('c1-line-9');
   input_subtitle3_text.addClass('column-1');
   input_subtitle3 = createInput('STUDIO & CREATIVE THINK TANK');
   input_subtitle3.addClass('textInput','column-1');
-  input_subtitle3.parent('c1-line-8');
+  input_subtitle3.parent('c1-line-9');
 
   subtitle3_select = createSelect();
   subtitle3_select.option('Arial');
   subtitle3_select.option('ArialBlack');
   subtitle3_select.option('Georgia');
   subtitle3_select.option('TimesNewRoman');
-  subtitle3_select.parent('c1-line-8');
+  subtitle3_select.parent('c1-line-9');
   subtitle3_select.addClass('column-1');
   subtitle3_select.changed(subtitle3ChangeFont);
 
   subtitle3_slider_size_text = createElement('h3','size');
-  subtitle3_slider_size_text.parent('c1-line-8');
+  subtitle3_slider_size_text.parent('c1-line-9');
   subtitle3_slider_size_text.addClass('column-1');
   subtitle3_slider_size = createSlider(0,100,14);
-  subtitle3_slider_size.parent('c1-line-8');
+  subtitle3_slider_size.parent('c1-line-9');
   subtitle3_slider_size.addClass('column-1');
 
   subtitle3_slider_x_text = createElement('h3','x');
-  subtitle3_slider_x_text.parent('c1-line-9');
+  subtitle3_slider_x_text.parent('c1-line-10');
   subtitle3_slider_x_text.addClass('column-1');
   subtitle3_slider_x = createSlider(0,width,20);
-  subtitle3_slider_x.parent('c1-line-9');
+  subtitle3_slider_x.parent('c1-line-10');
   subtitle3_slider_x.addClass('column-1');
 
   subtitle3_slider_y_text = createElement('h3','y');
-  subtitle3_slider_y_text.parent('c1-line-9');
+  subtitle3_slider_y_text.parent('c1-line-10');
   subtitle3_slider_y_text.addClass('column-1');
   subtitle3_slider_y = createSlider(0,height,110);
-  subtitle3_slider_y.parent('c1-line-9');
+  subtitle3_slider_y.parent('c1-line-10');
   subtitle3_slider_y.addClass('column-1');
 
-  textarea_text = createElement('h2','Time&Location');
+  textarea_text = createElement('h2','Text area');
   textarea_text.addClass('column-1','center');
-  textarea_text.parent('c1-line-10');
+  textarea_text.parent('c1-line-11');
   textarea = createElement('textarea','6:00-7:00PM');
   textarea.addClass('textArea','column-1');
-  textarea.parent('c1-line-10');
+  textarea.parent('c1-line-11');
 
   textarea_select = createSelect();
   textarea_select.option('Arial');
   textarea_select.option('ArialBlack');
   textarea_select.option('Georgia');
   textarea_select.option('TimesNewRoman');
-  textarea_select.parent('c1-line-10');
+  textarea_select.parent('c1-line-11');
   textarea_select.addClass('column-1');
   textarea_select.changed(textareaChangeFont);
 
   textarea_slider_size_text = createElement('h3','size');
-  textarea_slider_size_text.parent('c1-line-10');
+  textarea_slider_size_text.parent('c1-line-11');
   textarea_slider_size_text.addClass('column-1');
   textarea_slider_size = createSlider(0,100,18);
-  textarea_slider_size.parent('c1-line-10');
+  textarea_slider_size.parent('c1-line-11');
   textarea_slider_size.addClass('column-1');
 
   textarea_slider_x_text = createElement('h3','x');
-  textarea_slider_x_text.parent('c1-line-11');
+  textarea_slider_x_text.parent('c1-line-12');
   textarea_slider_x_text.addClass('column-1');
   textarea_slider_x = createSlider(0,width,20);
-  textarea_slider_x.parent('c1-line-11');
+  textarea_slider_x.parent('c1-line-12');
   textarea_slider_x.addClass('column-1');
 
   textarea_slider_y_text = createElement('h3','y');
-  textarea_slider_y_text.parent('c1-line-11');
+  textarea_slider_y_text.parent('c1-line-12');
   textarea_slider_y_text.addClass('column-1');
   textarea_slider_y = createSlider(0,height,600);
-  textarea_slider_y.parent('c1-line-11');
+  textarea_slider_y.parent('c1-line-12');
   textarea_slider_y.addClass('column-1');
 
 
@@ -449,56 +450,56 @@ var setup = function() {
   input_image_text = createElement('h2','Upload image');
   //input_image_text.position(660+textControlxOffset,580);
   input_image_text.addClass('column-1');
-  input_image_text.parent('c1-line-12');
+  input_image_text.parent('c1-line-13');
   input_image = createFileInput(handleFile);
   //input_image.position(800+textControlxOffset, 600);
   input_image.addClass('column-1');
-  input_image.parent('c1-line-12');
+  input_image.parent('c1-line-13');
 
   image_size_text = createElement('h3','Size');
   //image_size_text.position(750+textControlxOffset,620);
   image_size_text.addClass('column-1');
-  image_size_text.parent('c1-line-13');
+  image_size_text.parent('c1-line-14');
   imageSize_slider = createSlider(1,10,5);
   //imageSize_slider.position(800+textControlxOffset,640);
   imageSize_slider.addClass('slider','column-1');
-  imageSize_slider.parent('c1-line-13');
+  imageSize_slider.parent('c1-line-14');
 
   imageLocX_text = createElement('h3','X Location');
   //imageLocX_text.position(710+textControlxOffset,650);
   imageLocX_text.addClass('column-1');
-  imageLocX_text.parent('c1-line-14');
+  imageLocX_text.parent('c1-line-15');
   imageLocX_slider = createSlider(-windowWidth,windowWidth,290);
   //imageLocX_slider.position(800+textControlxOffset,670);
   imageLocX_slider.addClass('slider','column-1');
-  imageLocX_slider.parent('c1-line-14');
+  imageLocX_slider.parent('c1-line-15');
 
   imageLocY_text = createElement('h3','Y Location');
   //imageLocY_text.position(710+textControlxOffset,680);
   imageLocY_text.addClass('column-1');
-  imageLocY_text.parent('c1-line-15');
+  imageLocY_text.parent('c1-line-16');
   imageLocY_slider = createSlider(-windowHeight,windowHeight,640);
   //imageLocY_slider.position(800+textControlxOffset,700);
   imageLocY_slider.addClass('slider','column-1');
-  imageLocY_slider.parent('c1-line-15');
+  imageLocY_slider.parent('c1-line-16');
 
   //bgcolor GUI
   bgcolor_text = createElement('h2','Background Color');
   bgcolor_text.addClass('column-1');
-  bgcolor_text.parent('c1-line-16');
+  bgcolor_text.parent('c1-line-17');
 
   bgcolor_colorPicker = createColorPicker('#000000');
   bgcolor_colorPicker.addClass('colorPicker, column-1');
-  bgcolor_colorPicker.parent('c1-line-16');
+  bgcolor_colorPicker.parent('c1-line-17');
 
   //textcolor GUI
   textcolor_text = createElement('h2','Text Color');
   textcolor_text.addClass('column-1');
-  textcolor_text.parent('c1-line-17');
+  textcolor_text.parent('c1-line-2');
 
   textcolor_colorPicker = createColorPicker('#ffffff');
   textcolor_colorPicker.addClass('colorPicker, column-1');
-  textcolor_colorPicker.parent('c1-line-17');
+  textcolor_colorPicker.parent('c1-line-2');
 
   //Save GUI
   saveImageText = createElement('h2',"Save design as an Image");
