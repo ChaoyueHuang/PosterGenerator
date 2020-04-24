@@ -213,7 +213,7 @@ var setup = function() {
 
   bgColor = color(0);
   background(bgColor);
-  //smooth();
+  smooth();
   //var cnv = createCanvas(539, 696, SVG);
 
   //gif Start
@@ -1006,6 +1006,7 @@ var draw = function() {
 
     // background(bgColor);
     //background(slider.value());
+    // smooth();
     noFill();
     stroke(255,65);
 
