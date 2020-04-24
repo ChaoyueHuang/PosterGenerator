@@ -920,7 +920,7 @@ function shape001Option() {
       shape001_option_advanced[i].show();
     }
     for (var i = 0; i < shape001_option_basic.length; i++) {
-      shape001_option_basic[i].hide();
+      shape001_option_basic[i].show();
     }
   }
 }
