@@ -1010,6 +1010,8 @@ var draw = function() {
     noFill();
     stroke(255,65);
 
+
+
     if (toggle_01) {
       drawshape001();
       //basic and advanced control
@@ -1065,9 +1067,9 @@ var draw = function() {
   //}
 
       // Image part
-      if (img) {
-        image(img, imageLocX_slider.value(), imageLocY_slider.value(), img.width*imageSize_slider.value()/10, img.height*imageSize_slider.value()/10);
-      }
+      // if (img) {
+      //   image(img, imageLocX_slider.value(), imageLocY_slider.value(), img.width*imageSize_slider.value()/10, img.height*imageSize_slider.value()/10);
+      // }
 
     //gif part
     if (recordingToggle_stop) {
@@ -1094,6 +1096,9 @@ function drawshape001() {
 
   frameRate(60);
   background(bgcolor_colorPicker.value());
+  if (img) {
+    image(img, imageLocX_slider.value(), imageLocY_slider.value(), img.width*imageSize_slider.value()/10, img.height*imageSize_slider.value()/10);
+  }
   //Mian graphic part
   var fillMode = shape001_radio_fillMode.value();
   for (var i = 0; i < shape001_slider_number.value(); i = i + shape001_slider_step.value()) {
@@ -1129,6 +1134,9 @@ function drawshape002() {
   frameRate(3);
   //if (shape002_flag) {
     background(bgcolor_colorPicker.value());
+    if (img) {
+      image(img, imageLocX_slider.value(), imageLocY_slider.value(), img.width*imageSize_slider.value()/10, img.height*imageSize_slider.value()/10);
+    }
     for (var i = 0+shape002_slider_xoffset.value(); i < width+shape002_slider_xoffset.value(); i += shape002_step) {
       for (var j = 0+shape002_slider_yoffset.value(); j < height+shape002_slider_yoffset.value(); j += shape002_step) {
           shape002_drawLine(i,j,shape002_step,shape002_step);
@@ -1170,6 +1178,9 @@ function drawshape003() {
 		shape003_particles_c[i].display(radius);
 		shape003_particles_c[i].checkEdge();
 	}
+  if (img) {
+    image(img, imageLocX_slider.value(), imageLocY_slider.value(), img.width*imageSize_slider.value()/10, img.height*imageSize_slider.value()/10);
+  }
 }
 
 function shape002_drawLine(x,y,width,height){

@@ -260,3 +260,11 @@ textarea:hover {
 .typographic_button {
 
 }
+
+.gallery-pic {
+  padding: 20px;
+}
+
+.gallery-title h1 {
+  margin-left: 50px;
+}
