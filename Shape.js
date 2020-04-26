@@ -7,11 +7,13 @@ constructor(tempcx, tempcy, tempr){
 
 }
 
-display(r_,count){
+display(r_,count, xoffset_, yoffset_){
   this.count = count;
   this.r = r_;
+  this.xoffset = xoffset_;
+  this.yoffset = yoffset_;
   push();
-  translate(this.cx, this.cy);
+  translate(this.cx+this.xoffset, this.cy+this.yoffset);
   beginShape();
   for (var i = 0; i < this.count; i++) {
     var unit = 360/this.count;

@@ -152,6 +152,10 @@ var shape001_slider_MaxAmplitude_text;
 var shape001_slider_MinAmplitude;
 var shape001_slider_MinAmplitude_text;
 var shape001_randomButton;
+var shape001_slider_x;
+var shape001_slider_x_text;
+var shape001_slider_y;
+var shape001_slider_y_text;
 
 var shape001_control;
 
@@ -227,7 +231,7 @@ var setup = function() {
 
   colorMode(HSB, 360, 100, 100, 100);
 
-  s1 = new Shape(width/2, height/2, 100);
+  s1 = new Shape(0, height/2, 100);
   //shape001[0] = new Shape(width/2, height/2, 100);
   //gui.add(s1, 'num', 1, 20);
 
@@ -745,6 +749,24 @@ var setup = function() {
   shape001_slider_speed.parent('c3-line14');
   shape001_slider_speed.attribute('title',"adjust pattern's motion speed");
 
+  shape001_slider_x_text = createElement('h3', 'X offset');
+  shape001_slider_x_text.addClass('shape001, shape001_basic');
+  shape001_slider_x_text.parent('c3-line15');
+  shape001_slider_x_text.attribute('title',"adjust horizontal position");
+  shape001_slider_x = createSlider(0,width,width/2);
+  shape001_slider_x.addClass('slider, shape001, shape001_basic');
+  shape001_slider_x.parent('c3-line15');
+  shape001_slider_x.attribute('title',"adjust horizontal position");
+
+  shape001_slider_y_text = createElement('h3', 'Y offset');
+  shape001_slider_y_text.addClass('shape001, shape001_basic');
+  shape001_slider_y_text.parent('c3-line16');
+  shape001_slider_y_text.attribute('title',"adjust vertical position");
+  shape001_slider_y = createSlider(-height/2,height/2,0);
+  shape001_slider_y.addClass('slider, shape001, shape001_basic');
+  shape001_slider_y.parent('c3-line16');
+  shape001_slider_y.attribute('title',"adjust vertical position");
+
   shape001_slider_MaxAmplitude_text = createElement('h4', 'MaxAmplitude');
   //shape001_slider_MaxAmplitude_text.position(shape001x,645);
   shape001_slider_MaxAmplitude_text.addClass('shape001, shape001_advanced');
@@ -1125,7 +1147,7 @@ function drawshape001() {
   }
    //ellipse(width/2,height/2,i*25,i*25);
    //drawPolygon(width/2,height/2,i*7,4);
-   s1.display(shape001_slider_radius.value() + i*shape001_slider_scale.value(), shape001_slider_vertex.value());
+   s1.display(shape001_slider_radius.value() + i*shape001_slider_scale.value(), shape001_slider_vertex.value(), shape001_slider_x.value(), shape001_slider_y.value());
   }
 }
 
