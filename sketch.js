@@ -84,7 +84,11 @@ var bgcolor_colorPicker;
 
 //text color Variables
 var textcolor_text;
-var textcolor_colorPicker;
+var textcolor_colorPicker_title;
+var textcolor_colorPicker_subtitle1;
+var textcolor_colorPicker_subtitle2;
+var textcolor_colorPicker_subtitle3;
+var textcolor_colorPicker_textarea;
 
 //Save Variables
 var saveImage_button;
@@ -497,13 +501,29 @@ var setup = function() {
   bgcolor_colorPicker.parent('c1-line-17');
 
   //textcolor GUI
-  textcolor_text = createElement('h2','Text Color');
-  textcolor_text.addClass('column-1');
-  textcolor_text.parent('c1-line-2');
+  // textcolor_text = createElement('h2','Text Color');
+  // textcolor_text.addClass('column-1');
+  // textcolor_text.parent('c1-line-2');
 
-  textcolor_colorPicker = createColorPicker('#ffffff');
-  textcolor_colorPicker.addClass('colorPicker, column-1');
-  textcolor_colorPicker.parent('c1-line-2');
+  textcolor_colorPicker_title = createColorPicker('#ffffff');
+  textcolor_colorPicker_title.addClass('colorPicker, column-1');
+  textcolor_colorPicker_title.parent('c1-line-3');
+
+  textcolor_colorPicker_subtitle1 = createColorPicker('#ffffff');
+  textcolor_colorPicker_subtitle1.addClass('colorPicker, column-1');
+  textcolor_colorPicker_subtitle1.parent('c1-line-5');
+
+  textcolor_colorPicker_subtitle2 = createColorPicker('#ffffff');
+  textcolor_colorPicker_subtitle2.addClass('colorPicker, column-1');
+  textcolor_colorPicker_subtitle2.parent('c1-line-7');
+
+  textcolor_colorPicker_subtitle3 = createColorPicker('#ffffff');
+  textcolor_colorPicker_subtitle3.addClass('colorPicker, column-1');
+  textcolor_colorPicker_subtitle3.parent('c1-line-9');
+
+  textcolor_colorPicker_textarea = createColorPicker('#ffffff');
+  textcolor_colorPicker_textarea.addClass('colorPicker, column-1');
+  textcolor_colorPicker_textarea.parent('c1-line-11');
 
   //Save GUI
   saveImageText = createElement('h2',"Save design as an Image");
@@ -1056,27 +1076,31 @@ var draw = function() {
     titleChangeFont();
     textSize(title_slider_size.value());
     colorMode(RGB);
-    fill(textcolor_colorPicker.value());
+    fill(textcolor_colorPicker_title.value());
     noStroke();
     textStyle(BOLD);
     text(input_title.value(), title_slider_x.value(), title_slider_y.value());
 
     subtitle1ChangeFont();
+    fill(textcolor_colorPicker_subtitle1.value());
     textSize(subtitle1_slider_size.value());
     textStyle(NORMAL);
     text(input_subtitle1.value(), subtitle1_slider_x.value(), subtitle1_slider_y.value());
 
     subtitle2ChangeFont();
+    fill(textcolor_colorPicker_subtitle2.value());
     textSize(subtitle2_slider_size.value());
     textStyle(NORMAL);
     text(input_subtitle2.value(), subtitle2_slider_x.value(), subtitle2_slider_y.value());
 
     subtitle3ChangeFont();
+    fill(textcolor_colorPicker_subtitle3.value());
     textSize(subtitle3_slider_size.value());
     textStyle(NORMAL);
     text(input_subtitle3.value(), subtitle3_slider_x.value(), subtitle3_slider_y.value());
 
     textareaChangeFont();
+    fill(textcolor_colorPicker_textarea.value());
     textSize(textarea_slider_size.value());
     textStyle(NORMAL);
     text(textarea.value(), textarea_slider_x.value(), textarea_slider_y.value());
