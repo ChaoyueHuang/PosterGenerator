@@ -45,6 +45,30 @@ h4 {
   margin-bottom: 0;
 }
 
+a {
+  outline: none !important;
+  text-decoration: none !important;
+  display: inline-block;
+  text-align: center;
+  color: black;
+  border-radius:4px;
+  /* line-height: 3; */
+}
+
+a:link, a:visited, a:focus {
+  background: yellow;
+}
+
+a:hover {
+  background: orange;
+  color: black;
+}
+
+a:active {
+  background: red;
+  color: white;
+}
+
 .Alert {
   color: #FFA500;
 }
