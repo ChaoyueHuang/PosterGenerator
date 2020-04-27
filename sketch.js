@@ -253,16 +253,19 @@ var setup = function() {
   typographic2_button = createButton("Style b");
   typographic2_button.mousePressed(typographic2display);
   typographic2_button.parent('c1-line-1');
+  typographic2_button.addClass('typographic_button');
   // typographic2_button.attribute('title','This algorithm generates vertex based shape.');
 
   typographic3_button = createButton("Style c");
   typographic3_button.mousePressed(typographic3display);
   typographic3_button.parent('c1-line-1');
+  typographic3_button.addClass('typographic_button');
   // typographic3_button.attribute('title','This algorithm generates vertex based shape.');
 
   typographic4_button = createButton("Style d");
   typographic4_button.mousePressed(typographic4display);
   typographic4_button.parent('c1-line-1');
+  typographic4_button.addClass('typographic_button');
   // typographic4_button.attribute('title','This algorithm generates vertex based shape.');
 
   //Text Input GUI
@@ -526,7 +529,7 @@ var setup = function() {
   textcolor_colorPicker_textarea.parent('c1-line-11');
 
   //Save GUI
-  saveImageText = createElement('h2',"Save design as an Image");
+  saveImageText = createElement('h2',"Save as an Image");
   //saveImageText.position(720,800);
   saveImageText.addClass('column-2');
   saveImageText.parent('imageArea-line1');
@@ -534,23 +537,23 @@ var setup = function() {
   saveImage_button = createButton('Save Image');
   saveImage_button.mousePressed(saveImage);
   //saveImage_button.position(780,920);
-  saveImage_button.addClass('column-2');
+  saveImage_button.addClass('column-2, button-saveImage');
   saveImage_button.parent('imageArea-line3');
 
 
   play_button = createButton('Play');
   //play_button.position(720,860);
   play_button.mousePressed(playCanvas);
-  play_button.addClass('column-2');
+  play_button.addClass('column-2, button-play');
   play_button.parent('imageArea-line2');
 
   pause_button = createButton('Pause');
   //pause_button.position(800,860);
   pause_button.mousePressed(pauseCanvas);
-  pause_button.addClass('column-2');
+  pause_button.addClass('column-2, button-pause');
   pause_button.parent('imageArea-line2');
 
-  gif_title_text = createElement('h2', 'Save design as a GIF');
+  gif_title_text = createElement('h2', 'Save as a GIF');
   //gif_title_text.position(1050,800);
   gif_title_text.addClass('column-2');
   gif_title_text.parent('gifArea-line1');
@@ -558,7 +561,7 @@ var setup = function() {
   recordingStop = createButton("Start Recording");
   //recordingStop.position(1100,920);
   recordingStop.mousePressed(stopRecording);
-  recordingStop.addClass('column-2');
+  recordingStop.addClass('column-2, button-saveImage');
   recordingStop.parent('gifArea-line3');
 
 
@@ -585,22 +588,22 @@ var setup = function() {
 
   //Shape option GUI
   shape001_button = createButton("Vertex");
-  //shape001_button.position(50,100);
+  shape001_button.addClass('typographic_button');
   shape001_button.mousePressed(shape001display);
   shape001_button.parent('c3-line1');
   shape001_button.attribute('title','This algorithm generates vertex based shape.');
 
   shape002_button = createButton("Maze");
-  //shape002_button.position(150,100);
+  shape002_button.addClass('typographic_button');
   shape002_button.mousePressed(shape002display);
   shape002_button.parent('c3-line1');
   shape002_button.attribute('title','This algorithm generates maze-like pattern.');
 
   shape003_button = createButton("Noise");
-  //shape002_button.position(150,100);
+  shape003_button.addClass('typographic_button');
   shape003_button.mousePressed(shape003display);
   shape003_button.parent('c3-line1');
-  shape003_button.attribute('title','This algorithm generates maze-like pattern.');
+  shape003_button.attribute('title','This algorithm generates noise pattern.');
 
   //basic and advanced panel GUI
   shape001_option = createRadio();
