@@ -888,7 +888,8 @@ var setup = function() {
 
   shape003_randomButton = createButton("Random");
   shape003_randomButton.mousePressed(colorRandom);
-  shape003_randomButton.addClass('shape003_randomButton, shape003');
+  shape003_randomButton.addClass('shape003_randomButton');
+  shape003_randomButton.addClass('shape003');
   shape003_randomButton.parent('c3-line4');
   shape003_randomButton.attribute('title',"Random color");
 

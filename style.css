@@ -253,8 +253,37 @@ textarea:hover {
   background-color: white;
 } */
 
-.shape001_randomButton {
-  color: black;
+.shape001_randomButton, .shape003_randomButton {
+  /* color: black; */
+    display: inline-block;
+    border: none;
+    /* padding: 1rem 2rem; */
+    margin-top: 12px;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out,
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.shape001_randomButton:hover,
+.shape001_randomButton:focus, .shape003_randomButton:hover, .shape003_randomButton:focus {
+    background: #0053ba;
+}
+
+.shape001_randomButton:focus, .shape003_randomButton:focus {
+    outline: none;
+
+}
+
+.shape001_randomButton:active, .shape003_randomButton:active {
+    transform: scale(0.99);
 }
 
 .typographic_button {
