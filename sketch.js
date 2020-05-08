@@ -271,7 +271,7 @@ var setup = function() {
   //Text Input GUI
   textControlxOffset = -500;
 
-  input_title_text = createElement('h2','Title');
+  input_title_text = createElement('h2','Level 1');
   input_title_text.parent('c1-line-3');
   input_title_text.addClass('column-1');
   input_title = createInput('EVAN ABEL');
@@ -285,6 +285,7 @@ var setup = function() {
   title_select.option('TimesNewRoman');
   title_select.parent('c1-line-3');
   title_select.addClass('column-1');
+  title_select.addClass('select-css');
   title_select.changed(titleChangeFont);
 
   title_slider_size_text = createElement('h3','size');
@@ -293,6 +294,7 @@ var setup = function() {
   title_slider_size = createSlider(0,120,34);
   title_slider_size.parent('c1-line-3');
   title_slider_size.addClass('column-1');
+  title_slider_size.addClass('slider');
 
   title_slider_x_text = createElement('h3','x');
   title_slider_x_text.parent('c1-line-4');
@@ -300,6 +302,7 @@ var setup = function() {
   title_slider_x = createSlider(0,width,20);
   title_slider_x.parent('c1-line-4');
   title_slider_x.addClass('column-1');
+  title_slider_x.addClass('slider');
 
   title_slider_y_text = createElement('h3','y');
   title_slider_y_text.parent('c1-line-4');
@@ -307,8 +310,9 @@ var setup = function() {
   title_slider_y = createSlider(0,height,53);
   title_slider_y.parent('c1-line-4');
   title_slider_y.addClass('column-1');
+  title_slider_y.addClass('slider');
 
-  input_subtitle1_text = createElement('h2','Subtitle 1');
+  input_subtitle1_text = createElement('h2','Level 2');
   input_subtitle1_text.parent('c1-line-5');
   input_subtitle1_text.addClass('column-1');
   input_subtitle1 = createInput('IDM Speaker Series 2020');
@@ -322,6 +326,7 @@ var setup = function() {
   subtitle1_select.option('TimesNewRoman');
   subtitle1_select.parent('c1-line-5');
   subtitle1_select.addClass('column-1');
+  subtitle1_select.addClass('select-css');
   subtitle1_select.changed(subtitle1ChangeFont);
 
   subtitle1_slider_size_text = createElement('h3','size');
@@ -330,6 +335,7 @@ var setup = function() {
   subtitle1_slider_size = createSlider(0,100,18);
   subtitle1_slider_size.parent('c1-line-5');
   subtitle1_slider_size.addClass('column-1');
+  subtitle1_slider_size.addClass('slider');
 
   subtitle1_slider_x_text = createElement('h3','x');
   subtitle1_slider_x_text.parent('c1-line-6');
@@ -337,6 +343,7 @@ var setup = function() {
   subtitle1_slider_x = createSlider(0,width,300);
   subtitle1_slider_x.parent('c1-line-6');
   subtitle1_slider_x.addClass('column-1');
+  subtitle1_slider_x.addClass('slider');
 
   subtitle1_slider_y_text = createElement('h3','y');
   subtitle1_slider_y_text.parent('c1-line-6');
@@ -344,8 +351,9 @@ var setup = function() {
   subtitle1_slider_y = createSlider(0,height,53);
   subtitle1_slider_y.parent('c1-line-6');
   subtitle1_slider_y.addClass('column-1');
+  subtitle1_slider_y.addClass('slider');
 
-  input_subtitle2_text = createElement('h2','Subtitle 2');
+  input_subtitle2_text = createElement('h2','Level 3');
   input_subtitle2_text.parent('c1-line-7');
   input_subtitle2_text.addClass('column-1');
   input_subtitle2 = createInput('DOCUMENTARY PRODUCTION');
@@ -359,6 +367,7 @@ var setup = function() {
   subtitle2_select.option('TimesNewRoman');
   subtitle2_select.parent('c1-line-7');
   subtitle2_select.addClass('column-1');
+  subtitle2_select.addClass('select-css');
   subtitle2_select.changed(subtitle2ChangeFont);
 
   subtitle2_slider_size_text = createElement('h3','size');
@@ -367,6 +376,7 @@ var setup = function() {
   subtitle2_slider_size = createSlider(0,100,14);
   subtitle2_slider_size.parent('c1-line-7');
   subtitle2_slider_size.addClass('column-1');
+  subtitle2_slider_size.addClass('slider');
 
   subtitle2_slider_x_text = createElement('h3','x');
   subtitle2_slider_x_text.parent('c1-line-8');
@@ -374,6 +384,7 @@ var setup = function() {
   subtitle2_slider_x = createSlider(0,width,20);
   subtitle2_slider_x.parent('c1-line-8');
   subtitle2_slider_x.addClass('column-1');
+  subtitle2_slider_x.addClass('slider');
 
   subtitle2_slider_y_text = createElement('h3','y');
   subtitle2_slider_y_text.parent('c1-line-8');
@@ -381,8 +392,9 @@ var setup = function() {
   subtitle2_slider_y = createSlider(0,height,90);
   subtitle2_slider_y.parent('c1-line-8');
   subtitle2_slider_y.addClass('column-1');
+  subtitle2_slider_y.addClass('slider');
 
-  input_subtitle3_text = createElement('h2','Subtitle 3');
+  input_subtitle3_text = createElement('h2','Level 4');
   input_subtitle3_text.parent('c1-line-9');
   input_subtitle3_text.addClass('column-1');
   input_subtitle3 = createInput('STUDIO & CREATIVE THINK TANK');
@@ -396,6 +408,7 @@ var setup = function() {
   subtitle3_select.option('TimesNewRoman');
   subtitle3_select.parent('c1-line-9');
   subtitle3_select.addClass('column-1');
+  subtitle3_select.addClass('select-css');
   subtitle3_select.changed(subtitle3ChangeFont);
 
   subtitle3_slider_size_text = createElement('h3','size');
@@ -404,6 +417,7 @@ var setup = function() {
   subtitle3_slider_size = createSlider(0,100,14);
   subtitle3_slider_size.parent('c1-line-9');
   subtitle3_slider_size.addClass('column-1');
+  subtitle3_slider_size.addClass('slider');
 
   subtitle3_slider_x_text = createElement('h3','x');
   subtitle3_slider_x_text.parent('c1-line-10');
@@ -411,6 +425,7 @@ var setup = function() {
   subtitle3_slider_x = createSlider(0,width,20);
   subtitle3_slider_x.parent('c1-line-10');
   subtitle3_slider_x.addClass('column-1');
+  subtitle3_slider_x.addClass('slider');
 
   subtitle3_slider_y_text = createElement('h3','y');
   subtitle3_slider_y_text.parent('c1-line-10');
@@ -418,6 +433,7 @@ var setup = function() {
   subtitle3_slider_y = createSlider(0,height,110);
   subtitle3_slider_y.parent('c1-line-10');
   subtitle3_slider_y.addClass('column-1');
+  subtitle3_slider_y.addClass('slider');
 
   textarea_text = createElement('h2','Text area');
   textarea_text.addClass('column-1','center');
@@ -433,6 +449,7 @@ var setup = function() {
   textarea_select.option('TimesNewRoman');
   textarea_select.parent('c1-line-11');
   textarea_select.addClass('column-1');
+  textarea_select.addClass('select-css');
   textarea_select.changed(textareaChangeFont);
 
   textarea_slider_size_text = createElement('h3','size');
@@ -441,6 +458,7 @@ var setup = function() {
   textarea_slider_size = createSlider(0,100,18);
   textarea_slider_size.parent('c1-line-11');
   textarea_slider_size.addClass('column-1');
+  textarea_slider_size.addClass('slider');
 
   textarea_slider_x_text = createElement('h3','x');
   textarea_slider_x_text.parent('c1-line-12');
@@ -448,6 +466,7 @@ var setup = function() {
   textarea_slider_x = createSlider(0,width,20);
   textarea_slider_x.parent('c1-line-12');
   textarea_slider_x.addClass('column-1');
+  textarea_slider_x.addClass('slider');
 
   textarea_slider_y_text = createElement('h3','y');
   textarea_slider_y_text.parent('c1-line-12');
@@ -455,6 +474,7 @@ var setup = function() {
   textarea_slider_y = createSlider(0,height,600);
   textarea_slider_y.parent('c1-line-12');
   textarea_slider_y.addClass('column-1');
+  textarea_slider_y.addClass('slider');
 
 
   //Image Input GUI
@@ -633,7 +653,8 @@ var setup = function() {
   shape001_slider_number_text.attribute('title',"adjust the line's number");
   shape001_slider_number = createSlider(1,60,25);
   //shape001_slider_number.position(shape001x+100,165);
-  shape001_slider_number.addClass('slider, shape001, shape001_basic');
+  shape001_slider_number.addClass('shape001, shape001_basic');
+  shape001_slider_number.addClass('slider');
   shape001_slider_number.parent('c3-line2');
   shape001_slider_number.attribute('title',"adjust the line's number");
 
@@ -644,7 +665,8 @@ var setup = function() {
   shape001_slider_vertex_text.attribute('title',"adjust the vertex's number");
   shape001_slider_vertex = createSlider(1,100,3.2);
   //shape001_slider_vertex.position(shape001x+100,195);
-  shape001_slider_vertex.addClass('slider, shape001, shape001_basic');
+  shape001_slider_vertex.addClass('shape001, shape001_basic');
+  shape001_slider_vertex.addClass('slider');
   shape001_slider_vertex.parent('c3-line3');
   shape001_slider_vertex.attribute('title',"adjust the line's number");
 
@@ -653,9 +675,10 @@ var setup = function() {
   shape001_slider_radius_text.addClass('shape001, shape001_basic');
   shape001_slider_radius_text.parent('c3-line4');
   shape001_slider_radius_text.attribute('title',"adjust the pattern's radius");
-  shape001_slider_radius = createSlider(-500,500,85);
+  shape001_slider_radius = createSlider(-500,300,85);
   //shape001_slider_radius.position(shape001x+100,225);
-  shape001_slider_radius.addClass('slider, shape001, shape001_basic');
+  shape001_slider_radius.addClass('shape001, shape001_basic');
+  shape001_slider_radius.addClass('slider');
   shape001_slider_radius.parent('c3-line4');
   shape001_slider_radius.attribute('title',"adjust the line's number");
 
@@ -666,7 +689,8 @@ var setup = function() {
   shape001_slider_step_text.attribute('title',"adjust the space between lines");
   shape001_slider_step = createSlider(1,10,1);
   //shape001_slider_step.position(shape001x+100,255);
-  shape001_slider_step.addClass('slider, shape001, shape001_basic');
+  shape001_slider_step.addClass('shape001, shape001_basic');
+  shape001_slider_step.addClass('slider');
   shape001_slider_step.parent('c3-line5');
   shape001_slider_step.attribute('title',"adjust the space between lines");
 
@@ -677,7 +701,8 @@ var setup = function() {
   shape001_slider_maxStrokeWeight_text.addClass('shape001, shape001_advanced');
   shape001_slider_maxStrokeWeight_text.attribute('title',"Maximum thickness of the line");
   shape001_slider_maxStrokeWeight = createSlider(0,20,6);
-  shape001_slider_maxStrokeWeight.addClass('slider, shape001, shape001_advanced');
+  shape001_slider_maxStrokeWeight.addClass('shape001, shape001_advanced');
+  shape001_slider_maxStrokeWeight.addClass('slider');
   //shape001_slider_maxStrokeWeight.position(shape001x+100,285);
   shape001_slider_maxStrokeWeight.parent('c3-line6');
   shape001_slider_maxStrokeWeight.attribute('title',"Maximum thickness of the line");
@@ -689,7 +714,8 @@ var setup = function() {
   shape001_slider_minStrokeWeight_text.attribute('title',"Minimum thickness of the line");
   shape001_slider_minStrokeWeight = createSlider(0,20,1);
   //shape001_slider_minStrokeWeight.position(shape001x+100,315);
-  shape001_slider_minStrokeWeight.addClass('slider, shape001, shape001_advanced');
+  shape001_slider_minStrokeWeight.addClass('shape001, shape001_advanced');
+  shape001_slider_minStrokeWeight.addClass('slider');
   shape001_slider_minStrokeWeight.parent('c3-line7');
   shape001_slider_minStrokeWeight.attribute('title',"Minimum thickness of the line");
 
@@ -700,7 +726,8 @@ var setup = function() {
   shape001_slider_scale_text.attribute('title',"Scale of the pattern");
   shape001_slider_scale = createSlider(0,100,7);
   //shape001_slider_scale.position(shape001x+100,345);
-  shape001_slider_scale.addClass('slider, shape001, shape001_basic');
+  shape001_slider_scale.addClass('shape001, shape001_basic');
+  shape001_slider_scale.addClass('slider');
   shape001_slider_scale.parent('c3-line8');
   shape001_slider_scale.attribute('title',"Scale of the pattern");
 
@@ -724,7 +751,8 @@ var setup = function() {
   shape001_slider_startColor_text.attribute('title',"Inner gradient color");
   shape001_slider_startColor = createSlider(-360,0,0);
   //shape001_slider_startColor.position(shape001x+100,450);
-  shape001_slider_startColor.addClass('slider, shape001, shape001_advanced');
+  shape001_slider_startColor.addClass('shape001, shape001_advanced');
+  shape001_slider_startColor.addClass('slider');
   shape001_slider_startColor.parent('c3-line10');
   shape001_slider_startColor.attribute('title',"Inner gradient color");
 
@@ -735,7 +763,8 @@ var setup = function() {
   shape001_slider_endColor_text.attribute('title',"Outer gradient color");
   shape001_slider_endColor = createSlider(0,360,280);
   //shape001_slider_endColor.position(shape001x+100,480);
-  shape001_slider_endColor.addClass('slider, shape001, shape001_advanced');
+  shape001_slider_endColor.addClass('shape001, shape001_advanced');
+  shape001_slider_endColor.addClass('slider');
   shape001_slider_endColor.parent('c3-line11');
   shape001_slider_endColor.attribute('title',"Outer gradient color");
 
@@ -746,7 +775,8 @@ var setup = function() {
   shape001_slider_colorOffset_text.attribute('title',"set gradient color's position");
   shape001_slider_colorOffset = createSlider(0,10,0.7);
   //shape001_slider_colorOffset.position(shape001x+100,510);
-  shape001_slider_colorOffset.addClass('slider, shape001, shape001_advanced');
+  shape001_slider_colorOffset.addClass('shape001, shape001_advanced');
+  shape001_slider_colorOffset.addClass('slider');
   shape001_slider_colorOffset.parent('c3-line12');
   shape001_slider_colorOffset.attribute('title',"set gradient color's position");
 
@@ -757,7 +787,8 @@ var setup = function() {
   shape001_slider_flash_text.attribute('title',"flicker frequency");
   shape001_slider_flash = createSlider(0.1,10.0,7.0);
   //shape001_slider_flash.position(shape001x+100,600);
-  shape001_slider_flash.addClass('slider, shape001, shape001_advanced');
+  shape001_slider_flash.addClass('shape001, shape001_advanced');
+  shape001_slider_flash.addClass('slider');
   shape001_slider_flash.parent('c3-line13');
   shape001_slider_flash.attribute('title',"flicker frequency");
 
@@ -766,9 +797,10 @@ var setup = function() {
   shape001_slider_speed_text.addClass('shape001, shape001_basic');
   shape001_slider_speed_text.parent('c3-line14');
   shape001_slider_speed_text.attribute('title',"adjust pattern's motion speed");
-  shape001_slider_speed = createSlider(3.0,10.0,4.29);
+  shape001_slider_speed = createSlider(3.0,8.0,4.29);
   //shape001_slider_speed.position(shape001x+100,630);
-  shape001_slider_speed.addClass('slider, shape001, shape001_basic');
+  shape001_slider_speed.addClass('shape001, shape001_basic');
+  shape001_slider_speed.addClass('slider');
   shape001_slider_speed.parent('c3-line14');
   shape001_slider_speed.attribute('title',"adjust pattern's motion speed");
 
@@ -777,7 +809,8 @@ var setup = function() {
   shape001_slider_x_text.parent('c3-line15');
   shape001_slider_x_text.attribute('title',"adjust horizontal position");
   shape001_slider_x = createSlider(0,width,width/2);
-  shape001_slider_x.addClass('slider, shape001, shape001_basic');
+  shape001_slider_x.addClass('shape001, shape001_basic');
+  shape001_slider_x.addClass('slider');
   shape001_slider_x.parent('c3-line15');
   shape001_slider_x.attribute('title',"adjust horizontal position");
 
@@ -786,7 +819,8 @@ var setup = function() {
   shape001_slider_y_text.parent('c3-line16');
   shape001_slider_y_text.attribute('title',"adjust vertical position");
   shape001_slider_y = createSlider(-height/2,height/2,0);
-  shape001_slider_y.addClass('slider, shape001, shape001_basic');
+  shape001_slider_y.addClass('shape001, shape001_basic');
+  shape001_slider_y.addClass('slider');
   shape001_slider_y.parent('c3-line16');
   shape001_slider_y.attribute('title',"adjust vertical position");
 
@@ -797,7 +831,8 @@ var setup = function() {
   shape001_slider_MaxAmplitude_text.attribute('title',"Maximum speed");
   shape001_slider_MaxAmplitude = createSlider(0,250,135);
   //shape001_slider_MaxAmplitude.position(shape001x+100,660);
-  shape001_slider_MaxAmplitude.addClass('slider, shape001, shape001_advanced');
+  shape001_slider_MaxAmplitude.addClass('shape001, shape001_advanced');
+  shape001_slider_MaxAmplitude.addClass('slider');
   shape001_slider_MaxAmplitude.parent('c3-line15');
   shape001_slider_MaxAmplitude.attribute('title',"Maximum speed");
 
@@ -808,7 +843,8 @@ var setup = function() {
   shape001_slider_MinAmplitude_text.attribute('title',"Minimum speed");
   shape001_slider_MinAmplitude = createSlider(-250,0,-250);
   //shape001_slider_MinAmplitude.position(shape001x+100,690);
-  shape001_slider_MinAmplitude.addClass('slider, shape001, shape001_advanced');
+  shape001_slider_MinAmplitude.addClass('shape001, shape001_advanced');
+  shape001_slider_MinAmplitude.addClass('slider');
   shape001_slider_MinAmplitude.parent('c3-line16');
   shape001_slider_MinAmplitude.attribute('title',"Minimum speed");
 
@@ -828,7 +864,8 @@ var setup = function() {
   shape002_slider_lineWeight_text.parent('c3-line2');
   shape002_slider_lineWeight_text.attribute('title',"adjust line weight");
   shape002_slider_lineWeight = createSlider(1,60,25);
-  shape002_slider_lineWeight.addClass('slider, shape002');
+  shape002_slider_lineWeight.addClass('shape002');
+  shape002_slider_lineWeight.addClass('slider');
   shape002_slider_lineWeight.parent('c3-line2');
   shape002_slider_lineWeight.attribute('title',"adjust line weight");
 
@@ -837,7 +874,8 @@ var setup = function() {
   shape002_slider_lineSpace_text.parent('c3-line3');
   shape002_slider_lineSpace_text.attribute('title',"adjust line space");
   shape002_slider_lineSpace = createSlider(-30,30,0);
-  shape002_slider_lineSpace.addClass('slider, shape002');
+  shape002_slider_lineSpace.addClass('shape002');
+  shape002_slider_lineSpace.addClass('slider');
   shape002_slider_lineSpace.parent('c3-line3');
   shape002_slider_lineSpace.attribute('title',"adjust line space");
 
@@ -854,7 +892,8 @@ var setup = function() {
   shape002_slider_xoffset_text.parent('c3-line5');
   shape002_slider_xoffset_text.attribute('title', "adjust horizontal starting position");
   shape002_slider_xoffset = createSlider(-width, width, 0);
-  shape002_slider_xoffset.addClass('slider, shape002');
+  shape002_slider_xoffset.addClass('shape002');
+  shape002_slider_xoffset.addClass('slider');
   shape002_slider_xoffset.parent('c3-line5');
   shape002_slider_xoffset.attribute('title', "adjust horizontal starting position");
 
@@ -863,7 +902,8 @@ var setup = function() {
   shape002_slider_yoffset_text.parent('c3-line6');
   shape002_slider_yoffset_text.attribute('title', "adjust horizontal starting position");
   shape002_slider_yoffset = createSlider(-height, height, 0);
-  shape002_slider_yoffset.addClass('slider, shape002');
+  shape002_slider_yoffset.addClass('shape002');
+  shape002_slider_yoffset.addClass('slider');
   shape002_slider_yoffset.parent('c3-line6');
   shape002_slider_yoffset.attribute('title', "adjust vertical starting position");
 
@@ -873,7 +913,8 @@ var setup = function() {
   shape003_slider_number_text.parent('c3-line2');
   shape003_slider_number_text.attribute('title',"adjust particle number");
   shape003_slider_number = createSlider(1,200,200);
-  shape003_slider_number.addClass('slider, shape003');
+  shape003_slider_number.addClass('shape003');
+  shape003_slider_number.addClass('slider');
   shape003_slider_number.parent('c3-line2');
   shape003_slider_number.attribute('title',"adjust particle number");
 
@@ -882,7 +923,8 @@ var setup = function() {
   shape003_slider_noiseScale_text.parent('c3-line3');
   shape003_slider_noiseScale_text.attribute('title',"adjust noise scale");
   shape003_slider_noiseScale = createSlider(200,800,400);
-  shape003_slider_noiseScale.addClass('slider, shape003');
+  shape003_slider_noiseScale.addClass('shape003');
+  shape003_slider_noiseScale.addClass('slider');
   shape003_slider_noiseScale.parent('c3-line3');
   shape003_slider_noiseScale.attribute('title',"adjust noise scale");
 
